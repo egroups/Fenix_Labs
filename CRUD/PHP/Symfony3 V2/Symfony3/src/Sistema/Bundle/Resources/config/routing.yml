@@ -1,0 +1,111 @@
+sistema_homepage:
+    path:     /
+    defaults: { _controller: SistemaBundle:Default:index }
+
+sistema_home:
+    path:     /home
+    defaults: { _controller: SistemaBundle:Home:index }
+
+sistema_login:
+    path:     /login
+    defaults: { _controller: SistemaBundle:Login:ingresoUsuario }
+
+sistema_logout:
+    path:     /logOut
+    defaults: { _controller: SistemaBundle:Login:LogOut }
+
+sistema_administracion:
+    path:     /administracion
+    defaults: { _controller: SistemaBundle:Administracion:index }
+
+sistema_listar_productos:
+    path:     /administracion/productos/listar
+    defaults: { _controller: SistemaBundle:Productos:listar }
+
+sistema_agregar_producto:
+    path:     /administracion/productos/agregar
+    defaults: { _controller: SistemaBundle:Productos:agregarProducto }
+
+sistema_cargar_editar_producto:
+    path:     /administracion/productos/editar/{id}
+    defaults: { _controller: SistemaBundle:Productos:cargarEdicionProducto }
+
+sistema_cargar_borrar_producto:
+    path:     /administracion/productos/borrar/{id}
+    defaults: { _controller: SistemaBundle:Productos:cargarBorradoProducto }
+
+sistema_agregar_producto:
+    path:     /administracion/productos/agregar
+    defaults: { _controller: SistemaBundle:Productos:agregarProducto }
+
+sistema_editar_producto:
+    path:     /administracion/productos/editar
+    defaults: { _controller: SistemaBundle:Productos:editarProducto }
+
+sistema_borrar_producto:
+    path:     /administracion/productos/borrar
+    defaults: { _controller: SistemaBundle:Productos:borrarProducto }
+
+sistema_listar_proveedores:
+    path:     /administracion/proveedores/listar
+    defaults: { _controller: SistemaBundle:Proveedores:listar }
+
+sistema_buscar_proveedores:
+    path:     /administracion/proveedores/buscarProveedores
+    defaults: { _controller: SistemaBundle:Proveedores:buscarProveedores }
+
+sistema_cargar_editar_proveedor:
+    path:     /administracion/proveedores/editar/{id}
+    defaults: { _controller: SistemaBundle:Proveedores:cargarEdicionProveedor }
+
+sistema_cargar_borrar_proveedor:
+    path:     /administracion/proveedores/borrar/{id}
+    defaults: { _controller: SistemaBundle:Proveedores:cargarBorradoProveedor }
+
+sistema_agregar_proveedor:
+    path:     /administracion/proveedores/agregar
+    defaults: { _controller: SistemaBundle:Proveedores:agregarProveedor }
+
+sistema_editar_proveedor:
+    path:     /administracion/proveedores/editar
+    defaults: { _controller: SistemaBundle:Proveedores:editarProveedor }
+
+sistema_borrar_proveedor:
+    path:     /administracion/proveedor/borrar
+    defaults: { _controller: SistemaBundle:Proveedores:borrarProveedor }
+
+sistema_listar_usuarios:
+    path:     /administracion/usuarios/listar
+    defaults: { _controller: SistemaBundle:Usuarios:listar }
+
+sistema_cargar_editar_usuario:
+    path:     /administracion/usuarios/editar/{id}
+    defaults: { _controller: SistemaBundle:Usuarios:cargarEdicionUsuario }
+
+sistema_cargar_borrar_usuario:
+    path:     /administracion/usuarios/borrar/{id}
+    defaults: { _controller: SistemaBundle:Usuarios:cargarBorradoUsuario }
+
+sistema_agregar_usuario:
+    path:     /administracion/usuarios/agregar
+    defaults: { _controller: SistemaBundle:Usuarios:agregarUsuario }
+
+sistema_editar_usuario:
+    path:     /administracion/usuarios/editar
+    defaults: { _controller: SistemaBundle:Usuarios:editarUsuario }
+
+sistema_borrar_usuario:
+    path:     /administracion/usuarios/borrar
+    defaults: { _controller: SistemaBundle:Usuarios:borrarUsuario }
+
+sistema_cuenta_cambiar_usuario:
+    path:     /administracion/cuenta/cambiarUsuario
+    defaults: { _controller: SistemaBundle:Cuenta:cambiarUsuario }
+
+sistema_cuenta_cambiar_clave:
+    path:     /administracion/cuenta/cambiarClave
+    defaults: { _controller: SistemaBundle:Cuenta:cambiarClave }
+
+sistema_estadisticas:
+    path:     /administracion/estadisticas
+    defaults: { _controller: SistemaBundle:Estadisticas:index }

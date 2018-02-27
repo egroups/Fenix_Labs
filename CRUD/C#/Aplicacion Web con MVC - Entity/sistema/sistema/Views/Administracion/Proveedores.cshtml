@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "Proveedores";
+    Layout = "~/Views/Shared/_ViewAdmin.cshtml";
+}
+
+@using sistema.Funciones;
+@using sistema.Conexiones;
+@using sistema.Models;
+
+@{
+    Funciones funcion = new Funciones();
+    Conexion conexion_now = new Conexion();
+
+    string nombre_buscador = "";
+    
+    if(ViewBag.nombre_buscar!=null) {
+       nombre_buscador = ViewBag.nombre_buscar;
+    }
+    
+    int buscador_activo = 0;
+    
+    if(ViewBag.buscador_activo!=null) {
+        buscador_activo = ViewBag.buscador_activo;
+    }
+
+    List<proveedores> proveedores = new List<proveedores>();
+    int cantidad_proveedores = 0;
+    
+    if(buscador_activo==1) {
+         
+        if(nombre_buscador==null) {
+            proveedores = conexion_now.listarProveedores("");
+        } else {
+            proveedores = conexion_now.listarProveedores(nombre_buscador);   
+        }
+        
+    } else {
+        proveedores = conexion_now.listarProveedores("");
+    }
+    
+    cantidad_proveedores = proveedores.Count;
+
+    int check_editar = 0;
+    if(ViewBag.modoEditar!=null) {
+        check_editar = ViewBag.modoEditar;
+    }
+    int id_proveedor = 0;
+    if(check_editar==1) {
+        if(ViewBag.id_proveedor!=null) {
+            id_proveedor = ViewBag.id_proveedor;
+        }
+    }
+
+}
+
+<div class="login">
+<h1>Proveedores encontrados : @cantidad_proveedores</h1>
+
+@if(@buscador_activo!=1) {
+<br>
+using (Html.BeginForm("BuscarProveedores", "Administracion", FormMethod.Post, new {})) {
+<b>Nombre : </b><input type="text" name="nombre_buscar"><button class="small button" name="busqueda" type="submit">Buscar</button>
+}
+} else {
+    if (cantidad_proveedores == 0)
+    {
+        <center><b>No se encontraron proveedores</b></center>
+    } else {
+            <div class="datagrid">
+            <table><thead>
+            <th>Nombre empresa</th><th>Direccion</th><th>Telefono</th><th>Fecha registro</th><th>Opción</th>
+            @foreach (var proveedor in proveedores)
+            {
+    <tr><td>@proveedor.nombre_empresa</td>
+    <td>@proveedor.direccion</td>
+    <td>@proveedor.telefono</td>
+    <td>@proveedor.fecha_registro_proveedor</td>
+    <td><a href="/Administracion/Proveedores/Editar/@proveedor.id_proveedor"><img src="@Url.Content("~/Content/images/edit.png")" title="Editar"></a> <a href="/Administracion/Proveedores/Borrar/@proveedor.id_proveedor"><img src="@Url.Content("~/Content/images/delete.png")" title="Borrar"></a></td></tr>              
+            }           
+            </thead></table> 
+            </div><br>  
+    }
+}
+</div><br>
+
+@if(check_editar==0) {
+    
+<div class="login">
+<center>
+<h1>Agregar proveedor</h1>
+@using (Html.BeginForm("AgregarProveedor", "Administracion", FormMethod.Post, new {})) {        
+<b>Nombre empresa : </b><input type="text" name="nombre_empresa"><br>
+<b>Direccion : </b><input type="text" name="direccion"><br>
+<b>Telefono : </b><input type="text" name="telefono"><br><br>
+            
+<button class="small button" name="agregar_proveedor" type="submit">Agregar</button>
+}
+</center>
+</div><br>
+
+} else {
+    
+    proveedores proveedor_load = new proveedores();
+    proveedor_load = conexion_now.cargarProveedor(id_proveedor);
+
+    string id_proveedor_real = proveedor_load.id_proveedor.ToString();
+    string nombre_empresa = proveedor_load.nombre_empresa;
+    string direccion = proveedor_load.direccion;
+    string telefono = proveedor_load.telefono.ToString();
+     
+<div class="login">
+<center>
+<h1>Editando al proveedor @nombre_empresa</h1>
+@using (Html.BeginForm("EditarProveedor", "Administracion", FormMethod.Post, new {})) {
+<input type="hidden" name="id_proveedor" value="@id_proveedor_real"> 
+<b>Nombre empresa : </b><input type="text" name="nombre_empresa" value="@nombre_empresa"><br>
+<b>Direccion : </b><input type="text" name="direccion" value="@direccion"><br>
+<b>Telefono : </b><input type="text" name="telefono" value="@telefono"><br><br>
+            
+<button class="small button" name="editar_proveedor" type="submit">Editar</button>
+
+}
+
+</center>
+</div><br>   
+}
+
+@{
+    if (ViewBag.estado != null)
+    {
+        string mensaje = ViewBag.mensaje;
+        if (mensaje != "")
+        {
+            <script>alert("@mensaje");</script>;
+        }
+    }
+}

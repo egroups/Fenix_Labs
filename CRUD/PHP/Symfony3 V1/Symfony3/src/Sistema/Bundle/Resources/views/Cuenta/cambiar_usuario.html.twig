@@ -1,0 +1,46 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block title %}
+	Cambiar Usuario
+{% endblock %}
+
+{% block body %}
+
+	<div class="panel contenedor panel-default">
+	<div class="panel-heading">Cambiar Usuario</div>
+	<div class="panel-body">
+	  <form action="{{path('sistema_cuenta_cambiar_usuario')}}" method="POST" name="form_cambiar_usuario" class="form-horizontal">
+	    <fieldset>
+	      <legend>Datos</legend>
+	      <input type="hidden" name="id_usuario" value="{{usuario.id}}">
+	      <div class="form-group" name="form-group-username">
+	        <label for="inputNombre" class="col-lg-2 control-label">Usuario</label>
+	        <div class="col-lg-10">
+	          <input class="form-control" id="inputUsuario" placeholder="Ingrese usuario" type="text" name="username" value="{{usuario.usuario}}" readonly="readonly">
+	        </div>
+	      </div>
+	      <div class="form-group" name="form-group-new-username">
+	        <label for="inputNuevo" class="col-lg-2 control-label">Nuevo usuario</label>
+	        <div class="col-lg-10">
+	          <input class="form-control" id="inputNuevoUsuario" placeholder="Ingrese nuevo usuario" type="text" name="new_username">
+	        </div>
+	      </div>
+	      <div class="form-group" name="form-group-password">
+	        <label for="inputActual" class="col-lg-2 control-label">Actual contraseña</label>
+	        <div class="col-lg-10">
+	          <input class="form-control" id="inputPassword" placeholder="Ingrese password" type="password" name="password">
+	        </div>
+	      </div>
+	      <div class="form-group">
+	          <button type="submit" class="btn btn-primary center-block" name="cambiar_user" id="cambiar_user">Cambiar Usuario</button>
+	      </div>
+	    </fieldset>
+	  </form>        
+	</div>
+	</div>
+
+	{% for mensaje in app.session.flashBag.get('mensaje') %}
+	  {{ mensaje|raw }}
+	{% endfor %}
+
+{% endblock %}

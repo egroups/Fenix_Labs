@@ -1,0 +1,38 @@
+ <!-- Written By Ismael Heredia in the year 2016 -->
+
+<script type="text/javascript" src="proveedores.js"></script>
+<script type="text/javascript" src="productos.js"></script>
+<script type="text/javascript" src="usuarios.js"></script>
+
+<script>
+	
+    window.onload=function(){
+        
+		var proveedor = new Proveedor();
+		proveedor.setId_proveedor("1");
+		proveedor.setNombre_empresa("empresa");
+		proveedor.setDireccion("direccion");
+		proveedor.setTelefono("123");
+		proveedor.setFecha_registro("fecha");
+        alert(proveedor.toString());
+		
+		var producto = new Producto();
+		producto.setId_producto("1");
+		producto.setNombre_producto("producto");
+		producto.setDescripcion("descripcion");
+		producto.setPrecio("123");
+		producto.setId_proveedor("3");
+		producto.setFecha_registro("fecha");
+		alert(producto.toString());
+		
+		var usuario = new Usuario();
+		usuario.setId_usuario("1");
+		usuario.setNombre("nombre");
+		usuario.setPassword("password");
+		usuario.setTipo("1");
+		usuario.setFecha_registro("fecha");
+		alert(usuario.toString());
+			
+    }
+	
+</script>

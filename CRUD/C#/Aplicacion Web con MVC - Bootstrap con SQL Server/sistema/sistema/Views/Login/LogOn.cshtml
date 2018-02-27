@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "LogOn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel login panel-default">
+    <div class="panel-heading">Login</div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm("Start", "Login", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <fieldset>
+                <legend>Datos</legend>
+                <div class="form-group" name="form-group-username">
+                    <label for="inputTexto1" class="col-lg-2 control-label">Username</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputUsername" name="username" placeholder="Ingrese usuario" type="text">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-password">
+                    <label for="inputTexto2" class="col-lg-2 control-label">Password</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputPassword" name="password" placeholder="Ingrese password" type="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <br />
+                        <button type="submit" name="ingresar" id="ingresar" class="btn btn-primary">Ingresar</button>
+                    </div>
+                </div>
+            </fieldset>
+         }
+    </div>
+</div>
+
+@{
+    if (ViewBag.estado != null)
+    {
+        string titulo = ViewBag.titulo;
+        string contenido = ViewBag.contenido;
+        string tipo = ViewBag.tipo;
+        if (contenido != "")
+        {
+            <script>
+                swal({
+                    title: '@titulo',
+                    text: '@contenido',
+                    type: '@tipo',
+                    html: true,
+                    animation: false
+                });
+            </script>;
+        }
+    }
+}

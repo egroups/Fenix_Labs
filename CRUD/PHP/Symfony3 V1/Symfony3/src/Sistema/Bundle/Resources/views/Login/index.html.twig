@@ -1,0 +1,41 @@
+{% extends '::layout_login.html.twig' %}
+
+{% block title %}
+	Login
+{% endblock %}
+
+{% block body %}
+
+<div class="panel login panel-default">
+	<div class="panel-heading">Login</div>
+		<div class="panel-body">
+        <form action="{{path('sistema_ingresoUsuario')}}" method="POST" class="form-horizontal" name="form_login">
+          <fieldset>
+            <legend>Datos</legend>
+            <div class="form-group" name="form-group-username">
+              <label for="inputTexto1" class="col-lg-2 control-label">Username</label>
+              <div class="col-lg-10">
+                <input class="form-control" id="inputUsername" name="username" placeholder="Ingrese usuario" type="text">
+              </div>
+            </div>
+            <div class="form-group" name="form-group-password">
+              <label for="inputTexto2" class="col-lg-2 control-label">Password</label>
+              <div class="col-lg-10">
+                <input class="form-control" id="inputPassword" name="password" placeholder="Ingrese password" type="password">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-10 col-lg-offset-2">
+                <button type="submit" name="login" class="btn btn-primary">Ingresar</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+	</div>
+</div>
+
+{% for mensaje in app.session.flashBag.get('mensaje') %}
+  {{ mensaje|raw }}
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+Sistema\Bundle\Entity\TiposUsuarios:
+    type: entity
+    table: null
+    repositoryClass: Sistema\Bundle\Repository\TiposUsuariosRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

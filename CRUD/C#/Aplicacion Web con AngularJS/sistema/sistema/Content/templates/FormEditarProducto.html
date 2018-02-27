@@ -1,0 +1,53 @@
+<div ng-include="'Content/templates/Header.html'"></div>
+<div ng-include="'Content/templates/BuscadorProductos.html'"></div>
+
+<div class="panel contenedor panel-default">
+<div class="panel-heading">Editando al producto {{producto.nombre_producto}}</div>
+<div class="panel-body">
+
+<div ng-if="productos">
+
+<form ng-submit="updateProducto()" method="POST" name="form_productos" class="form-horizontal">
+<input type="hidden" name="id_producto" value="{{producto.id}}">
+  <fieldset>
+    <legend>Datos</legend>
+    <div class="form-group" name="form-group-nombre" ng-class="form_group_nombre">
+      <label for="inputNombre" class="col-lg-2 control-label">Nombre producto</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="inputNombre" placeholder="Ingrese nombre producto" type="text" name="nombre_producto" ng-model="producto.nombre_producto" value="{{producto.nombre_producto}}">
+      </div>
+    </div>
+    <div class="form-group" name="form-group-descripcion" ng-class="form_group_descripcion">
+      <label for="textArea" class="col-lg-2 control-label">Descripcion</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="inputDescripcion" placeholder="Ingrese descripcion" name="descripcion" ng-model="producto.descripcion">{{producto.descripcion}}</textarea>
+      </div>
+    </div>
+    <div class="form-group" name="form-group-precio" ng-class="form_group_precio">
+      <label for="inputPrecio" class="col-lg-2 control-label">Precio</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="inputPrecio" placeholder="Ingrese precio" type="text" name="precio" ng-model="producto.precio" value="{{producto.precio}}">
+      </div>
+    </div>
+    <div class="form-group" name="form-group-proveedor" ng-class="form_group_proveedor">
+      <label for="select" class="col-lg-2 control-label">Proveedor</label>
+      <div class="col-lg-10">
+      <div ng-if="productos">
+        <select class="form-control" id="inputProveedor" ng-model="producto.proveedor">
+             <option ng-selected="data.id_proveedor == proveedor.id" ng-repeat="proveedor in proveedores" value="{{proveedor}}">{{proveedor.nombre_empresa}}</option>
+        </select>
+      </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <div class="form-group">
+          <button type="submit" class="btn btn-default" name="editar_producto" id="editar_producto">{{ textButton }}</button>
+          <button type="submit" class="btn btn-primary" name="cancelar_producto" id="cancelar_producto" ng-click='cancelarEdicionProducto()'>Cancelar</button>
+      </div>
+    </div>
+  </fieldset>
+</form>        
+</div>
+</div>  
+
+<div ng-include="'Content/templates/Footer.html'"></div>

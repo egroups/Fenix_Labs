@@ -1,0 +1,20 @@
+﻿@{
+    if (ViewBag.estado != null)
+    {
+        string titulo = ViewBag.titulo;
+        string contenido = ViewBag.contenido;
+        string tipo = ViewBag.tipo;
+        if (contenido != "")
+        {
+            <script>
+                swal({
+                    title: '@titulo',
+                    text: '@contenido',
+                    type: '@tipo',
+                    html: true,
+                    animation: false
+                });
+            </script>;
+        }
+    }
+}

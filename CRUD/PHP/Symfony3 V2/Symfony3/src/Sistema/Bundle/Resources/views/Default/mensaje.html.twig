@@ -1,0 +1,17 @@
+{% extends '::layout_login.html.twig' %}
+
+{% block title %}
+	Alerta
+{% endblock %}
+
+{% block body %}
+	<script>
+	 swal({
+	     title: "{{titulo}}",
+	     text: "{{mensaje}}",
+	     type: "{{tipo}}",
+	 }, function () {
+	     window.location = "{{url}}"
+	 });
+	</script> 
+{% endblock %}

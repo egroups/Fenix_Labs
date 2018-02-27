@@ -1,0 +1,10 @@
+﻿<Window x:Class="sistema.WindowReporte"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"
+        Title="Reporte" Height="657.498" Width="775.732" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <my:CrystalReportsViewer HorizontalAlignment="Left" Name="crystalReportViewer1"
+                                 VerticalAlignment="Top" Height="627.498" Width="770" Margin="0,0,-2.268,0" />
+    </Grid>
+</Window>

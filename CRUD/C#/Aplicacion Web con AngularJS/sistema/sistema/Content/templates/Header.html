@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <a class="navbar-brand" href="#">Administracion</a></div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="defaultNavbar1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/administracion" name="inicio">Inicio<span class="sr-only">(current)</span></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cuenta <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#/cambiar_usuario" name="cambiar_usuario">Cambiar Usuario</a></li>
+            <li><a href="#/cambiar_password" name="cambiar_password">Cambiar Password</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestionar <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#/productos" name="productos">Productos</a></li>
+            <li><a href="#/proveedores" name="proveedores">Proveedores</a></li>
+            <li><a href="#/usuarios" name="usuarios">Usuarios</a></li>
+          </ul>
+        </li>
+        <li>
+            <a href="#/estadisticas" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Estadisticas</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ng-click="logout()">Salir</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1 class="text-center">Administracion</h1>
+    </div>
+  </div>
+  <hr>

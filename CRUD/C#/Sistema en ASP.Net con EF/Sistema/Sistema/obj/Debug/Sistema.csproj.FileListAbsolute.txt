@@ -1,0 +1,15 @@
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con SQL Server\Sistema\Sistema\bin\Sistema.dll.config
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con SQL Server\Sistema\Sistema\bin\Sistema.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con SQL Server\Sistema\Sistema\bin\Sistema.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con SQL Server\Sistema\Sistema\obj\Debug\Sistema.csprojResolveAssemblyReference.cache
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con SQL Server\Sistema\Sistema\obj\Debug\Sistema.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con SQL Server\Sistema\Sistema\obj\Debug\Sistema.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con EF\Sistema\Sistema\bin\Sistema.dll.config
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con EF\Sistema\Sistema\bin\Sistema.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con EF\Sistema\Sistema\bin\Sistema.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con EF\Sistema\Sistema\bin\EntityFramework.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con EF\Sistema\Sistema\bin\EntityFramework.SqlServer.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con EF\Sistema\Sistema\bin\EntityFramework.xml
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con EF\Sistema\Sistema\bin\EntityFramework.SqlServer.xml
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con EF\Sistema\Sistema\obj\Debug\Sistema.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Sistema en ASP.Net con EF\Sistema\Sistema\obj\Debug\Sistema.pdb

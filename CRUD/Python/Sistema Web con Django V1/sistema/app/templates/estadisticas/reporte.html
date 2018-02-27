@@ -1,0 +1,165 @@
+{% extends 'layouts/base_admin.html' %}
+
+{% block title %}Estadísticas{% endblock %}
+
+{% block content %}
+
+	<script type="text/javascript">
+	$(function () {
+	    $('#grafico1').highcharts({
+	        chart: {
+	            type: 'bar'
+	        },
+	        title: {
+	            text: 'Reporte de productos y sus precios'
+	        },
+	        xAxis: {
+	            categories: {% autoescape off %}{{textos_grafico1}}{% endautoescape %},
+	            title: {
+	            text: 'Productos'
+	            }
+	        },
+	                
+	        yAxis: {
+	            min: 0,
+	            title: {
+	                text: 'Precios',
+	                align: 'high'
+	            },
+	            labels: {
+	                overflow: 'justify'
+	            }
+	        },
+	        tooltip: {
+	        useHTML: true,
+	        formatter: function() {
+	            return '<b>Precio : </b>$'+this.point.y;
+	        }},
+	        plotOptions: {
+	        
+	        series: {
+	            dataLabels:{
+	                //enabled:true,
+	            },events: {
+	                legendItemClick: function () {
+	                        return false; 
+	                }
+	            }
+	        }
+	          },
+	        legend: {
+	            reversed: true
+	        },
+	        credits: {
+	            enabled: false
+	        },
+	        series: [{
+	        name:'Precios',
+	        data: {% autoescape off %}{{series_grafico1}}{% endautoescape %}
+			}]
+	    });
+
+	    $('#grafico2').highcharts({
+	        chart: {
+	            type: 'bar'
+	        },
+	        title: {
+	            text: 'Reporte de cantidad de productos por proveedores'
+	        },
+	        xAxis: {
+	            categories: {% autoescape off %}{{textos_grafico2}}{% endautoescape %},
+	            title: {
+	            text: 'Empresas'
+	            }
+	        },
+	                
+	        yAxis: {
+	            min: 0,
+	            title: {
+	                text: 'Productos',
+	                align: 'high'
+	            },
+	            labels: {
+	                overflow: 'justify'
+	            }
+	        },
+	        tooltip: {
+	        useHTML: true,
+	        formatter: function() {
+	            return '<b>Cantidad de productos : </b>'+this.point.y;
+	        }},
+	        plotOptions: {
+	        
+	        series: {
+	            dataLabels:{
+	                //enabled:true,
+	            },events: {
+	                legendItemClick: function () {
+	                        return false; 
+	                }
+	            }
+	        }
+	          },
+	        legend: {
+	            reversed: true
+	        },
+	        credits: {
+	            enabled: false
+	        },
+	        series: [{
+	        name:'Productos',
+	        data: {% autoescape off %}{{series_grafico2}}{% endautoescape %}
+	    	}]
+	    });
+
+	});
+
+	</script> 
+
+	<div class="panel contenedor panel-default">
+		  <div class="panel-heading">Productos encontrados : {{cantidad_productos}}</div>
+		  <div class="panel-body">
+			{% if productos %}
+				<table class="table table-striped table-hover ">
+				  <thead>
+					<tr>
+			            <th class="fila_listado_productos">Nombre</th>
+			            <th class="fila_listado_productos">Descripción</th>
+			            <th class="fila_listado_productos">Precio</th>
+			            <th class="fila_listado_productos">Proveedor</th>
+			            <th class="fila_listado_productos">Registro</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					{% for producto in productos %}
+					  <tr>
+						<td class="filterable-cell fila_listado_productos">{{producto.nombre}}</td>
+						<td class="filterable-cell fila_listado_productos">{{producto.descripcion}}</td>
+						<td class="filterable-cell fila_listado_productos">{{producto.precio}}</td>
+						<td class="filterable-cell fila_listado_productos">{{producto.proveedor.nombre}}</td>
+						<td class="filterable-cell fila_listado_productos">{{producto.fecha_registro}}</td>
+					  </tr>
+					{% endfor %}
+				  </tbody>
+				</table>					
+			{% else %}
+				<center><b>No se encontraron productos</b></center>
+			{% endif %}			    
+		  </div>
+	</div>
+
+	<div class="panel contenedor panel-default">
+	    <div class="panel-heading">Gráfico 1</div>
+	    <div class="panel-body">
+			<div id="grafico1" style="width: 800px; height: 400px;"></div>
+		</div>
+	</div>
+
+	<div class="panel contenedor panel-default">
+	    <div class="panel-heading">Gráfico 2</div>
+	    <div class="panel-body">
+			<div id="grafico2" style="width: 800px; height: 400px;"></div>
+		</div>
+	</div>
+
+{% endblock %}

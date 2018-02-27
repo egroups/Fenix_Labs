@@ -1,0 +1,32 @@
+﻿<div class="panel contenedor panel-default">
+    <div class="panel-heading">Agregar Proveedor</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Agregar", "Proveedores", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <fieldset>
+                <legend>Datos</legend>
+                <div class="form-group" name="form-group-nombre">
+                    <label for="inputNombre" class="col-lg-2 control-label">Nombre empresa</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputNombre" placeholder="Ingrese nombre empresa" type="text" name="nombre_empresa">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-direccion">
+                    <label for="inputDireccion" class="col-lg-2 control-label">Direccion</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputDireccion" placeholder="Ingrese direccion" type="text" name="direccion">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-telefono">
+                    <label for="inputTelefono" class="col-lg-2 control-label">Telefono</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputTelefono" placeholder="Ingrese telefono" type="text" name="telefono">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary center-block" name="agregar_proveedor" id="agregar_proveedor">Agregar</button>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>

@@ -1,0 +1,125 @@
+﻿@using sistema.Funciones;
+@using sistema.Conexiones;
+@using sistema.Models;
+
+@{
+    Funciones funcion = new Funciones();
+    Conexion conexion_now = new Conexion();
+
+    string nombre_buscador = "";
+
+    if (ViewBag.nombre_buscar != null)
+    {
+        nombre_buscador = ViewBag.nombre_buscar;
+    }
+
+    int buscador_activo = 0;
+
+    if (ViewBag.buscador_activo != null)
+    {
+        buscador_activo = ViewBag.buscador_activo;
+    }
+
+    List<usuarios> usuarios = new List<usuarios>();
+    int cantidad_usuarios = 0;
+
+    if (buscador_activo == 1)
+    {
+
+        if (nombre_buscador == null)
+        {
+            usuarios = conexion_now.listarUsuarios("");
+        }
+        else
+        {
+            usuarios = conexion_now.listarUsuarios(nombre_buscador);
+        }
+
+    }
+    else
+    {
+        usuarios = conexion_now.listarUsuarios("");
+    }
+
+    cantidad_usuarios = usuarios.Count;
+
+}
+
+<script>
+    function funcion_buscar_usuarios() {
+        var texto = $("input[name='nombre_buscar']").val();
+        $.post("Administracion/Usuarios/Buscador", { nombre_buscar: texto }, function (mensaje) {
+            $("#tabla").html(mensaje);
+        });
+    }
+</script>
+
+@if (@buscador_activo != 1)
+{
+    <div class="panel contenedor panel-default">
+        <div class="panel-heading">Usuarios encontrados : @cantidad_usuarios</div>
+        <div class="panel-body">
+            @using (Html.BeginForm("Buscador", "Usuarios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <fieldset>
+                    <div class="form-group">
+                        <label for="inputNombre" class="col-lg-2 control-label">Nombre</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" id="inputNombre" placeholder="Nombre" name="nombre_buscar" type="text" onkeyup="funcion_buscar_usuarios();">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="busqueda" id="buscar_usuarios" class="btn btn-primary center-block">Buscar</button>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="panel contenedor panel-default">
+        <div class="panel-heading">Usuarios encontrados : @cantidad_usuarios</div>
+        <div class="panel-body">
+            @if (cantidad_usuarios == 0)
+            {
+                <center><b>No se encontraron usuarios</b></center>
+            }
+            else
+            {
+                <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th class="fila_usuario">Nombre</th>
+                            <th class="fila_usuario">Tipo</th>
+                            <th class="fila_usuario">Registro</th>
+                            <th class="fila_usuario">Opción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var usuario in usuarios)
+                        {
+                            string tipo_real = "";
+                            string tipo = usuario.tipo.ToString();
+                            if (tipo == "1")
+                            {
+                                tipo_real = "Administrador";
+                            }
+                            else
+                            {
+                                tipo_real = "Usuario";
+                            }
+
+                            <tr>
+                                <td class="filterable-cell fila_usuario">@usuario.usuario</td>
+                                <td class="filterable-cell fila_usuario">@tipo_real</td>
+                                <td class="filterable-cell fila_usuario">@usuario.fecha_registro</td>
+                                <td class="filterable-cell fila_usuario"><a href="/Administracion/Usuarios/Editar/@usuario.id_usuario"><img src="@Url.Content("~/Content/images/edit.png")" title="Editar"></a> <a href="/Administracion/Usuarios/Borrar/@usuario.id_usuario"><img src="@Url.Content("~/Content/images/delete.png")" title="Borrar"></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+}

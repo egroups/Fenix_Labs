@@ -1,0 +1,11 @@
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion ASP.Net con SQL Server\Personal\Personal\bin\Personal.dll.config
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion ASP.Net con SQL Server\Personal\Personal\bin\Personal.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion ASP.Net con SQL Server\Personal\Personal\bin\Personal.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion ASP.Net con SQL Server\Personal\Personal\obj\Debug\Personal.csprojResolveAssemblyReference.cache
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion ASP.Net con SQL Server\Personal\Personal\obj\Debug\Personal.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion ASP.Net con SQL Server\Personal\Personal\obj\Debug\Personal.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Personal en ASP.Net con SQL Server\Personal\Personal\bin\Personal.dll.config
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Personal en ASP.Net con SQL Server\Personal\Personal\bin\Personal.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Personal en ASP.Net con SQL Server\Personal\Personal\bin\Personal.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Personal en ASP.Net con SQL Server\Personal\Personal\obj\Debug\Personal.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Personal en ASP.Net con SQL Server\Personal\Personal\obj\Debug\Personal.pdb

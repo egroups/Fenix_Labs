@@ -1,0 +1,35 @@
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\bin\Debug\Sistema.exe.config
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\bin\Debug\Sistema.exe
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\bin\Debug\Sistema.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\bin\Debug\Sistema.xml
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.FormCambiarClave.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.FormCambiarUsuario.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.FormHome.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.FormLogin.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.FormProductos.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.FormProveedores.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.FormReporte.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.FormUsuarios.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.Resources.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\sistema.vbproj.GenerateResource.Cache
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.exe
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.xml
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server\Sistema\sistema\obj\x86\Debug\Sistema.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\bin\Debug\Sistema.exe.config
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\bin\Debug\Sistema.exe
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\bin\Debug\Sistema.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\bin\Debug\Sistema.xml
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\sistema.vbprojResolveAssemblyReference.cache
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.FormCambiarClave.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.FormCambiarUsuario.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.FormHome.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.FormLogin.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.FormProductos.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.FormProveedores.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.FormReporte.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.FormUsuarios.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.Resources.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\sistema.vbproj.GenerateResource.Cache
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.exe
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.xml
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\VB.Net\Aplicacion con SQL Server V2\Sistema\sistema\obj\x86\Debug\Sistema.pdb

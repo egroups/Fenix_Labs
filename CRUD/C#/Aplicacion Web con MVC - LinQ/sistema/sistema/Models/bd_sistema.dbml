@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="sistema" Class="bd_sistemaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=sistema;User ID=admin" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="sistemaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.productos" Member="productos">
+    <Type Name="productos">
+      <Column Name="id_producto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_producto" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="precio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_proveedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha_registro" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="proveedores_productos" Member="proveedores" ThisKey="id_proveedor" OtherKey="id_proveedor" Type="proveedores" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.proveedores" Member="proveedores">
+    <Type Name="proveedores">
+      <Column Name="id_proveedor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_empresa" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha_registro_proveedor" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="proveedores_productos" Member="productos" ThisKey="id_proveedor" OtherKey="id_proveedor" Type="productos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.usuarios" Member="usuarios">
+    <Type Name="usuarios">
+      <Column Name="id_usuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="usuario" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="clave" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="tipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha_registro" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

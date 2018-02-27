@@ -1,0 +1,118 @@
+﻿@using sistema.Funciones;
+@using sistema.Conexiones;
+@using sistema.Models;
+
+@{
+    Funciones funcion = new Funciones();
+    Conexion conexion_now = new Conexion();
+
+    string nombre_buscador = "";
+
+    if (ViewBag.nombre_buscar != null)
+    {
+        nombre_buscador = ViewBag.nombre_buscar;
+    }
+
+    int buscador_activo = 0;
+
+    if (ViewBag.buscador_activo != null)
+    {
+        buscador_activo = ViewBag.buscador_activo;
+    }
+
+    List<proveedores> proveedores = new List<proveedores>();
+    int cantidad_proveedores = 0;
+
+    if (buscador_activo == 1)
+    {
+
+        if (nombre_buscador == null)
+        {
+            proveedores = conexion_now.listarProveedores("");
+        }
+        else
+        {
+            proveedores = conexion_now.listarProveedores(nombre_buscador);
+        }
+
+    }
+    else
+    {
+        proveedores = conexion_now.listarProveedores("");
+    }
+
+    cantidad_proveedores = proveedores.Count;
+
+}
+
+<script>
+    function funcion_buscar_proveedores() {
+        var texto = $("input[name='nombre_buscar']").val();
+        $.post("Administracion/Proveedores/Buscador", { nombre_buscar: texto }, function (mensaje) {
+            $("#tabla").html(mensaje);
+        });
+    }
+</script>
+
+@if (@buscador_activo != 1)
+{
+    <div class="panel contenedor panel-default">
+        <div class="panel-heading">Proveedores encontrados : @cantidad_proveedores</div>
+        <div class="panel-body">
+            @using (Html.BeginForm("Buscador", "Proveedores", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <fieldset>
+                    <div class="form-group">
+                        <label for="inputBuscar" class="col-lg-2 control-label">Nombre</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" id="inputBuscar" placeholder="Nombre" name="nombre_buscar" type="text" onkeyup="funcion_buscar_proveedores();">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="busqueda" id="buscar_proveedores" class="btn btn-primary center-block">Buscar</button>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+}
+else
+{
+
+    <div class="panel contenedor panel-default">
+        <div class="panel-heading">Proveedores encontrados : @cantidad_proveedores</div>
+        <div class="panel-body">
+
+            @if (cantidad_proveedores == 0)
+            {
+                <center><b>No se encontraron proveedores</b></center>
+            }
+            else
+            {
+                <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th class="fila_proveedor">Nombre</th>
+                            <th class="fila_proveedor">Direccion</th>
+                            <th class="fila_proveedor">Telefono</th>
+                            <th class="fila_proveedor">Registro</th>
+                            <th class="fila_proveedor">Opción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var proveedor in proveedores)
+                        {
+                            <tr>
+                                <td class="filterable-cell fila_proveedor">@proveedor.nombre_empresa</td>
+                                <td class="filterable-cell fila_proveedor">@proveedor.direccion</td>
+                                <td class="filterable-cell fila_proveedor">@proveedor.telefono</td>
+                                <td class="filterable-cell fila_proveedor">@proveedor.fecha_registro_proveedor</td>
+                                <td class="filterable-cell fila_proveedor"><a href="/Administracion/Proveedores/Editar/@proveedor.id_proveedor"><img src="@Url.Content("~/Content/images/edit.png")" title="Editar"></a> <a href="/Administracion/Proveedores/Borrar/@proveedor.id_proveedor"><img src="@Url.Content("~/Content/images/delete.png")" title="Borrar"></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+}

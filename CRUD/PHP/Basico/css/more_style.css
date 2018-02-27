@@ -1,0 +1,28 @@
+.post {
+	background: #303238 url("img/bg01.png");
+	color:white;
+	margin-bottom:10px;
+	width:600px;
+	word-wrap: break-word;
+}
+
+.post h3 {
+	background: #303238 url("img/bg01.png");
+	color:white;
+	border: solid #404246 2px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding:5px 10px;
+}
+
+.post_body {
+	background: #303238 url("img/bg01.png");
+	margin:-20px 0 0 0;
+	color:white;
+	border: solid #404246 2px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding:5px 10px;
+}

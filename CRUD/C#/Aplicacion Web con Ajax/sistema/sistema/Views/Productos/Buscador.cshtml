@@ -1,0 +1,126 @@
+﻿@using sistema.Funciones;
+@using sistema.Conexiones;
+@using sistema.Models;
+
+@{
+    Funciones funcion = new Funciones();
+    Conexion conexion_now = new Conexion();
+
+    string nombre_buscador = "";
+
+    if (ViewBag.nombre_buscar != null)
+    {
+        nombre_buscador = ViewBag.nombre_buscar;
+    }
+
+    int buscador_activo = 0;
+
+    if (ViewBag.buscador_activo != null)
+    {
+        buscador_activo = ViewBag.buscador_activo;
+    }
+
+    List<productos> productos = new List<productos>();
+    int cantidad_productos = 0;
+
+    if (buscador_activo == 1)
+    {
+
+        if (nombre_buscador == null)
+        {
+            productos = conexion_now.listarProductos("");
+        }
+        else
+        {
+            productos = conexion_now.listarProductos(nombre_buscador);
+        }
+
+    }
+    else
+    {
+        productos = conexion_now.listarProductos("");
+    }
+
+    cantidad_productos = productos.Count;
+
+    int cantidad_proveedores = 0;
+
+    List<proveedores> proveedores = new List<proveedores>();
+    proveedores = conexion_now.listarProveedores("");
+    cantidad_proveedores = proveedores.Count;
+
+}
+
+<script>
+    function funcion_buscar_productos() {
+        var texto = $("input[name='nombre_buscar']").val();
+        $.post("Administracion/Productos/Buscador", { nombre_buscar: texto }, function (mensaje) {
+            $("#tabla").html(mensaje);
+        });
+    }
+</script>
+
+@if (@buscador_activo != 1)
+{
+    <div class="panel contenedor panel-default">
+        <div class="panel-heading">Productos encontrados : @cantidad_productos</div>
+        <div class="panel-body">
+            @using (Html.BeginForm("Buscador", "Productos", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <fieldset>
+                    <div class="form-group">
+                        <label for="inputBuscar" class="col-lg-2 control-label">Nombre</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" id="inputBuscar" placeholder="Nombre" name="nombre_buscar" type="text" onkeyup="funcion_buscar_productos();">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="busqueda" id="buscar_productos" class="btn btn-primary center-block">Buscar</button>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="panel contenedor panel-default">
+        <div class="panel-heading">Productos encontrados : @cantidad_productos</div>
+        <div class="panel-body">
+
+            @if (cantidad_productos == 0)
+            {
+                <center><b>No se encontraron productos</b></center>
+            }
+            else
+            {
+                <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th class="fila_producto">Nombre</th>
+                            <th class="fila_producto">Descripcion</th>
+                            <th class="fila_producto">Precio</th>
+                            <th class="fila_producto">Proveedor</th>
+                            <th class="fila_producto">Registro</th>
+                            <th class="fila_producto">Opción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var producto in productos)
+                        {
+                            string nombre_proveedor = conexion_now.cargarNombreProveedor(Int32.Parse(producto.id_proveedor.ToString()));
+                            <tr>
+                                <td class="filterable-cell fila_producto">@producto.nombre_producto</td>
+                                <td class="filterable-cell fila_producto">@producto.descripcion</td>
+                                <td class="filterable-cell fila_producto">@producto.precio</td>
+                                <td class="filterable-cell fila_producto">@nombre_proveedor</td>
+                                <td class="filterable-cell fila_producto">@producto.fecha_registro</td>
+                                <td class="filterable-cell fila_producto"><a href="/Administracion/Productos/Editar/@producto.id_producto"><img src="@Url.Content("~/Content/images/edit.png")" title="Editar"></a> <a href="/Administracion/Productos/Borrar/@producto.id_producto"><img src="@Url.Content("~/Content/images/delete.png")" title="Borrar"></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+}

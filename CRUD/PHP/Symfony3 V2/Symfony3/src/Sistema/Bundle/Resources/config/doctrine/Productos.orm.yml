@@ -1,0 +1,28 @@
+Sistema\Bundle\Entity\Productos:
+    type: entity
+    table: null
+    repositoryClass: Sistema\Bundle\Repository\ProductosRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: 255
+            column: nombre
+        descripcion:
+            type: string
+            length: 255
+        precio:
+            type: float
+        idProveedor:
+            type: integer
+            column: id_proveedor
+        fechaRegistro:
+            type: string
+            length: 255
+            column: fecha_registro
+    lifecycleCallbacks: {  }

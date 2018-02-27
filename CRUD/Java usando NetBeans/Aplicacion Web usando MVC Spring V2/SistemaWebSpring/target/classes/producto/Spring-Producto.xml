@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="ProductoBO" class="sistema.bo.ProductoBOImpl">
+		<property name="ProductoDAO" ref="ProductoDAO" />
+	</bean>
+        
+    	<bean id="ProductoDAO" class="sistema.dao.JdbcProductoDAO">
+		<property name="dataSource" ref="dataSource" />
+        </bean>
+        
+</beans>

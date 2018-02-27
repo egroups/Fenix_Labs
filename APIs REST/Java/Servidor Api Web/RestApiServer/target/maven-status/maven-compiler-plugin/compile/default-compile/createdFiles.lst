@@ -1,0 +1,16 @@
+Rest\XMLProductosService.class
+Rest\JSONProductosService$1.class
+Rest\JSONProductosService.class
+Modelo\Mensaje.class
+Controlador\AccesoDatos.class
+Modelo\Usuario.class
+Rest\JSONUsuariosService$1.class
+Controlador\Conexion.class
+Modelo\Proveedor.class
+Rest\XMLUsuariosService.class
+Rest\XMLProveedoresService.class
+Rest\JSONProveedoresService.class
+Rest\JSONProveedoresService$1.class
+Funciones\Funciones.class
+Modelo\Producto.class
+Rest\JSONUsuariosService.class

@@ -1,0 +1,4 @@
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion Web con SQL Server sin EF\Sistema\Entities\bin\Debug\Entities.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion Web con SQL Server sin EF\Sistema\Entities\bin\Debug\Entities.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion Web con SQL Server sin EF\Sistema\Entities\obj\Debug\Entities.dll
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion Web con SQL Server sin EF\Sistema\Entities\obj\Debug\Entities.pdb

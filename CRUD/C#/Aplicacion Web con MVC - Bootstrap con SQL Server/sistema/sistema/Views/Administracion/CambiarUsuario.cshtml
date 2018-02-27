@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "CambiarUsuario";
+    Layout = "~/Views/Shared/_ViewAdmin.cshtml";
+}
+
+@using sistema.Conexiones;
+@using sistema.Funciones;
+@using sistema.Models;
+
+@{
+    Conexion conexion_now = new Conexion();
+    var userInCookie = Request.Cookies["user_login"];
+    string cookie_content = userInCookie.Value;
+    string username = conexion_now.get_username_in_cookie(cookie_content);
+}
+
+<div class="panel contenedor panel-default">
+    <div class="panel-heading">Cambiar Usuario</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("EditarUsuario", "Administracion", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <fieldset>
+                <legend>Datos</legend>
+                <div class="form-group" name="form-group-username">
+                    <label for="inputNombre" class="col-lg-2 control-label">Usuario</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputUsuario" placeholder="Ingrese nombre usuario" type="text" name="nombre_usuario" value="@username" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-new-username">
+                    <label for="inputNuevo" class="col-lg-2 control-label">Nuevo usuario</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputNuevoUsuario" placeholder="Ingrese nuevo usuario" type="text" name="nuevo_usuario">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-password">
+                    <label for="inputActual" class="col-lg-2 control-label">Actual contraseña</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputPassword" placeholder="Ingrese password" type="password" name="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary center-block" name="cambiar_user" id="cambiar_user">Cambiar</button>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>
+
+@{
+    if (ViewBag.estado != null)
+    {
+        string titulo = ViewBag.titulo;
+        string contenido = ViewBag.contenido;
+        string tipo = ViewBag.tipo;
+        if (contenido != "")
+        {
+            <script>
+                swal({
+                    title: '@titulo',
+                    text: '@contenido',
+                    type: '@tipo',
+                    html: true,
+                    animation: false
+                });
+            </script>;
+        }
+    }
+}

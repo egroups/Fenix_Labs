@@ -1,0 +1,15 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block title %}
+	Administración
+{% endblock %}
+
+{% block body %}
+
+	<center><h1><font color='white'>Bienvenido a la administración {{tipo}} {{nombre_usuario}}</font></h1></center><br>
+
+	{% for mensaje in app.session.flashBag.get('mensaje') %}
+	  {{ mensaje|raw }}
+	{% endfor %}
+
+{% endblock %}

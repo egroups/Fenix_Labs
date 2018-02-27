@@ -1,0 +1,56 @@
+﻿@using sistema.Funciones;
+@using sistema.Conexiones;
+@using sistema.Models;
+
+@{
+    Funciones funcion = new Funciones();
+    Conexion conexion_now = new Conexion();
+
+    int id_proveedor = ViewBag.id_proveedor;
+
+    proveedores proveedor_load = new proveedores();
+    proveedor_load = conexion_now.cargarProveedor(id_proveedor);
+
+    string id_proveedor_real = proveedor_load.id_proveedor.ToString();
+    string nombre_empresa = proveedor_load.nombre_empresa;
+    string direccion = proveedor_load.direccion;
+    string telefono = proveedor_load.telefono.ToString();
+      
+}
+
+<div class="panel contenedor panel-default">
+    <div class="panel-heading">Editando al proveedor @nombre_empresa</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Editar", "Proveedores", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <input type="hidden" name="id_proveedor" value="@id_proveedor_real">
+            <fieldset>
+                <legend>Datos</legend>
+                <div class="form-group" name="form-group-nombre">
+                    <label for="inputNombre" class="col-lg-2 control-label">Nombre empresa</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputNombre" placeholder="Ingrese nombre empresa" type="text" name="nombre_empresa" value="@nombre_empresa">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-direccion">
+                    <label for="inputDireccion" class="col-lg-2 control-label">Direccion</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputDireccion" placeholder="Ingrese direccion" type="text" name="direccion" value="@direccion">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-telefono">
+                    <label for="inputTelefono" class="col-lg-2 control-label">Telefono</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputTelefono" placeholder="Ingrese telefono" type="text" name="telefono" value="@telefono">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default" name="editar_proveedor" id="editar_proveedor">Editar</button>
+                        <button type="submit" class="btn btn-primary" name="cancelar_proveedor" id="cancelar_proveedor">Cancelar</button>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>

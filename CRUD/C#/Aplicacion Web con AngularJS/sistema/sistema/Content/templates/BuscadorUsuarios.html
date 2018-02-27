@@ -1,0 +1,39 @@
+﻿<div class="panel contenedor panel-default">
+  <div class="panel-heading">Usuarios encontrados : {{usuarios.length}}</div>
+  <div class="panel-body">
+    <fieldset>
+      <div class="form-group">
+        <label for="inputBuscar" class="col-lg-2 control-label">Nombre</label>
+        <div class="col-lg-10">
+          <input class="form-control" type="text" ng-model="buscador"/>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<div class="panel contenedor panel-default" ng-show="(usuarios| filter:{usuario:buscador}).length">
+  <div class="panel-heading">Usuarios encontrados : {{(usuarios|filter:{usuario:buscador}).length}}</div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="fila_usuario">Nombre</th>
+            <th class="fila_usuario">Tipo</th>
+            <th class="fila_usuario">Registro</th>
+            <th class="fila_usuario">Opción</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="usuario in usuarios | filter: { usuario : buscador }">
+          <td class="filterable-cell fila_usuario">{{usuario.usuario}}</td>
+          <td class="filterable-cell fila_usuario">{{usuario.nombre_tipo}}</td>
+          <td class="filterable-cell fila_usuario">{{usuario.fecha_registro}}</td>
+  		    <td class="filterable-cell fila_usuario"><a href="#/usuarios/{{usuario.id}}/editar"><img src="Content/images/edit.png" title="Editar"></a> <a href="#/usuarios/{{usuario.id}}/borrar" class="button expand alert""><img src="Content/images/delete.png" title="Borrar"></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div> 
+  </div>
+</div>

@@ -1,0 +1,15 @@
+{% extends 'layouts/base_admin.html' %}
+
+{% block title %}Administración{% endblock %}
+
+{% block content %}
+	<center><h1>Bienvenido a la administración {{tipo_usuario}} {{usuario_logeado}}</h1></center>
+
+	{% if messages %}
+		{% for message in messages %}
+			{% autoescape off %}{{ message }}{% endautoescape %}
+		{% endfor %}
+	{% endif %}
+
+{% endblock %}
+

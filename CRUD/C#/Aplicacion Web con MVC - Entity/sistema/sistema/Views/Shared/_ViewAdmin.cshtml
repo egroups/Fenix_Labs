@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html><head>
+      <title>@ViewBag.Title</title>
+      <meta content="initial-scale=1" name="viewport"><meta content="user-scalable=yes,width=device-width,initial-scale=1" name="viewport"><title>Administración</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <link rel="shortcut icon" href="@Url.Content("~/Content/img/favicon.ico")" type="image/ico">
+      @Styles.Render("~/Content/Admin/css")
+      @Scripts.Render("~/Content/Admin/Scripts")
+   </head>
+   <body class="">
+      <div id="header-wrapper">
+         <div class="container">
+            <header id="header">
+               <div class="inner">
+                  <h1 id="logo"><a href="#">Administración</a></h1>
+                  <nav id="nav">
+                     <ul>
+                        <li style="white-space: nowrap;" class="current_page_item"><a href="@Url.Action("Index", "Administracion")">Inicio</a></li>
+                        <li class="opener" style="-moz-user-select: none; cursor: pointer; white-space: nowrap;">
+                           <a href="#">Cuenta</a>
+                           <ul class="dropotron level-0" style="-moz-user-select: none; display: none; position: absolute; z-index: 1000;">
+                              <li style="white-space: nowrap;"><a style="display: block;" href="@Url.Action("CambiarUsuario", "Administracion")">Cambiar usuario</a></li>
+                              <li style="white-space: nowrap;"><a style="display: block;" href="@Url.Action("CambiarPassword", "Administracion")">Cambiar contraseña</a></li>
+                           </ul>
+                        </li>                        
+                        <li class="opener" style="-moz-user-select: none; cursor: pointer; white-space: nowrap;">
+                           <a href="#">Gestionar</a>
+                           <ul class="dropotron level-0" style="-moz-user-select: none; display: none; position: absolute; z-index: 1000;">
+                              <li style="white-space: nowrap;"><a style="display: block;" href="@Url.Action("Productos", "Administracion")">Productos</a></li>
+                              <li style="white-space: nowrap;"><a style="display: block;" href="@Url.Action("Proveedores", "Administracion")">Proveedores</a></li>
+                              <li style="white-space: nowrap;"><a style="display: block;" href="@Url.Action("Usuarios", "Administracion")">Usuarios</a></li>
+                           </ul>
+                        </li>
+                        <li style="white-space: nowrap;"><a href="@Url.Action("DescargarReporte", "Administracion")">Estadísticas</a></li>
+                        <li style="white-space: nowrap;"><a href="@Url.Action("LogOut", "Login")">Salir</a></li>
+                     </ul>
+                  </nav>
+               </div>
+               </header>              
+            <br><br>
+            <header class="major">
+            </header>
+            
+            @RenderBody() 
+                    
+            <br>
+            <header class="major">
+            </header>
+            
+         </div>
+      </div>
+      <div class="row">
+         <div class="12u">
+            <div id="copyright">
+               <ul class="menu">
+                  <li>Creditos</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      
+   
+</div></body></html>

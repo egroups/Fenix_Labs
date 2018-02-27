@@ -1,0 +1,35 @@
+﻿<div ng-include="'Content/templates/Header.html'"></div>
+
+<div class="panel contenedor panel-default">
+<div class="panel-heading">Cambiar Usuario</div>
+<div class="panel-body">
+  <form ng-submit="changeUsername()" method="POST" name="form_cambiar_usuario" class="form-horizontal">
+    <fieldset>
+      <legend>Datos</legend>
+      <div class="form-group" name="form-group-username" ng-class="form_group_username">
+        <label for="inputNombre" class="col-lg-2 control-label">Usuario</label>
+        <div class="col-lg-10">
+          <input class="form-control" id="inputUsuario" placeholder="{{username_placeholder}}" type="text" name="username" ng-model="usuario.nombre" value="{{usuario.nombre}}" readonly="readonly">
+        </div>
+      </div>
+      <div class="form-group" name="form-group-new-username" ng-class="form_group_new_username">
+        <label for="inputNuevo" class="col-lg-2 control-label">Nuevo usuario</label>
+        <div class="col-lg-10">
+          <input class="form-control" id="inputNuevoUsuario" placeholder="{{new_username_placeholder}}" type="text" name="new_username" ng-model="usuario.nuevo_usuario">
+        </div>
+      </div>
+      <div class="form-group" name="form-group-password" ng-class="form_group_password">
+        <label for="inputActual" class="col-lg-2 control-label">Actual contraseña</label>
+        <div class="col-lg-10">
+          <input class="form-control" id="inputPassword" placeholder="{{password_placeholder}}" type="password" name="password" ng-model="usuario.password">
+        </div>
+      </div>
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary center-block" name="cambiar_user" id="cambiar_user">{{ textButton }}</button>
+      </div>
+    </fieldset>
+  </form>        
+</div>
+</div>
+
+<div ng-include="'Content/templates/Footer.html'"></div>

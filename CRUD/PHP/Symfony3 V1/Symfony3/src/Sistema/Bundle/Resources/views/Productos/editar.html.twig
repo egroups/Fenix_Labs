@@ -1,0 +1,83 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block title %}
+	Productos
+{% endblock %}
+
+{% block body %}
+
+	<div class="panel contenedor panel-default">
+	  <div class="panel-heading">Productos encontrados : {{cantidad_productos}}</div>
+	  <div class="panel-body">
+		<form action="{{path('sistema_buscar_productos')}}" method="POST" class="form-horizontal" name="form_busqueda">
+		  <fieldset>
+			<div class="form-group">
+			  <label for="inputBuscar" class="col-lg-2 control-label">Nombre</label>
+			  <div class="col-lg-10">
+				<input class="form-control" id="inputBuscar" placeholder="Nombre" name="nombre_buscar" type="text">
+			  </div>
+			</div>
+			<div class="form-group">
+				<button type="submit" name="busqueda" class="btn btn-primary center-block">Buscar</button>
+			</div>
+		  </fieldset>
+		</form>
+	  </div>
+	</div>
+
+	<div class="panel contenedor panel-default">
+	<div class="panel-heading">Editando al producto {{producto.nombreProducto}}</div>
+	<div class="panel-body">
+	<form action="{{path('sistema_editar_producto')}}" method="POST" name="form_productos" class="form-horizontal">
+	  <fieldset>
+		<legend>Datos</legend>
+		<input type="hidden" name="id_producto" value="{{producto.id}}">
+		<div class="form-group" name="form-group-nombre">
+		  <label for="inputNombre" class="col-lg-2 control-label">Nombre producto</label>
+		  <div class="col-lg-10">
+			<input class="form-control" id="inputNombre" placeholder="Ingrese nombre producto" type="text" name="nombre_producto" value="{{producto.nombreProducto}}">
+		  </div>
+		</div>
+		<div class="form-group" name="form-group-descripcion">
+		  <label for="textArea" class="col-lg-2 control-label">Descripcion</label>
+		  <div class="col-lg-10">
+			<textarea class="form-control" rows="3" id="textArea" placeholder="Ingrese descripcion" name="descripcion">{{producto.descripcion}}</textarea>
+		  </div>
+		</div>
+		<div class="form-group" name="form-group-precio">
+		  <label for="inputPrecio" class="col-lg-2 control-label">Precio</label>
+		  <div class="col-lg-10">
+			<input class="form-control" id="inputPrecio" placeholder="Ingrese precio" type="text" name="precio" value="{{producto.precio}}">
+		  </div>
+		</div>
+		<div class="form-group" name="form-group-proveedor">
+		  <label for="select" class="col-lg-2 control-label">Proveedor</label>
+		  <div class="col-lg-10">
+			<select class="form-control" id="select" name="proveedor">
+			{% if proveedores %}
+				{% for proveedor in proveedores %}
+				  {% if proveedor.id == producto.idProveedor %}
+				    <option value="{{proveedor.id}}" selected>{{proveedor.nombreEmpresa}}</option>
+				  {% else %}
+				    <option value="{{proveedor.id}}">{{proveedor.nombreEmpresa}}</option>
+				  {% endif %}
+				{% endfor %}
+			{% else %}
+				<option value="null">No se encontraron proveedores</option>
+			{% endif %}
+			</select>
+		  </div>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary center-block" name="editar_producto">Editar</button>
+		</div>
+	  </fieldset>
+	</form>        
+	</div>
+	</div>	
+
+	{% for mensaje in app.session.flashBag.get('mensaje') %}
+	  {{ mensaje|raw }}
+	{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sistemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="productos">
+    <Key>
+      <PropertyRef Name="id_producto" />
+    </Key>
+    <Property Name="id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_producto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="precio" Type="Int32" />
+    <Property Name="id_proveedor" Type="Int32" />
+    <Property Name="fecha_registro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="proveedores" Relationship="Self.fk_productos" FromRole="productos" ToRole="proveedores" />
+  </EntityType>
+  <EntityType Name="proveedores">
+    <Key>
+      <PropertyRef Name="id_proveedor" />
+    </Key>
+    <Property Name="id_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="Int32" />
+    <Property Name="fecha_registro_proveedor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="productos" Relationship="Self.fk_productos" FromRole="proveedores" ToRole="productos" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="clave" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="fecha_registro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="fk_productos">
+    <End Role="proveedores" Type="Self.proveedores" Multiplicity="0..1" />
+    <End Role="productos" Type="Self.productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proveedores">
+        <PropertyRef Name="id_proveedor" />
+      </Principal>
+      <Dependent Role="productos">
+        <PropertyRef Name="id_proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sistemaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="productos" EntityType="Self.productos" />
+    <EntitySet Name="proveedores" EntityType="Self.proveedores" />
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+    <AssociationSet Name="fk_productos" Association="Self.fk_productos">
+      <End Role="proveedores" EntitySet="proveedores" />
+      <End Role="productos" EntitySet="productos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

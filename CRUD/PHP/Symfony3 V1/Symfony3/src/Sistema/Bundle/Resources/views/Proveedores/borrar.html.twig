@@ -1,0 +1,25 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block title %}
+	Productos
+{% endblock %}
+
+{% block body %}
+
+	<div class="jumbotron">
+	  <form action="{{path('sistema_borrar_proveedor')}}" method="POST" class="form-horizontal" name="form_proveedores">
+	  	  <input type="hidden" name="id_proveedor" value="{{proveedor.id}}">
+		  <center>
+			  <h1>Eliminar proveedor</h1></br>
+			  <p>¿Estás seguro que deseas eliminar al proveedor {{ proveedor.nombreEmpresa }}?</p></br>
+			  <button type="submit" name="borrar_proveedor" class="btn-lg btn-danger">Eliminar</button>
+			  <button type="submit" name="volver_proveedor" class="btn-lg btn-primary">Volver</button>
+		  </center>
+	  </form>
+	</div>
+
+	{% for mensaje in app.session.flashBag.get('mensaje') %}
+	  {{ mensaje|raw }}
+	{% endfor %}
+
+{% endblock %}

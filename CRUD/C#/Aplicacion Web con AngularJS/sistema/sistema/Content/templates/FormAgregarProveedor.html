@@ -1,0 +1,36 @@
+<div ng-include="'Content/templates/Header.html'"></div>
+<div ng-include="'Content/templates/BuscadorProveedores.html'"></div>
+
+<div class="panel contenedor panel-default">
+<div class="panel-heading">Agregar Proveedor</div>
+<div class="panel-body">
+<form ng-submit="newProveedor()" method="POST" name="form_proveedores" class="form-horizontal">
+  <fieldset>
+    <legend>Datos</legend>
+    <div class="form-group" name="form-group-nombre" ng-class="form_group_nombre">
+      <label for="inputNombre" class="col-lg-2 control-label">Nombre empresa</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="inputNombre" placeholder="{{nombre_empresa_placeholder}}" type="text" name="nombre_empresa" ng-model="proveedor.nombre_empresa">
+      </div>
+    </div>
+    <div class="form-group" name="form-group-direccion" ng-class="form_group_direccion">
+      <label for="inputDireccion" class="col-lg-2 control-label">Direccion</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="inputDireccion" placeholder="{{direccion_placeholder}}" type="text" name="direccion" ng-model="proveedor.direccion">
+      </div>
+    </div>
+    <div class="form-group" name="form-group-telefono" ng-class="form_group_telefono">
+      <label for="inputTelefono" class="col-lg-2 control-label">Telefono</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="inputTelefono" placeholder="{{telefono_placeholder}}" type="text" name="telefono" ng-model="proveedor.telefono">
+      </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary center-block" name="agregar_proveedor" id="agregar_proveedor">{{ textButton }}</button>
+    </div>
+  </fieldset>
+</form>        
+</div>
+</div>
+
+<div ng-include="'Content/templates/Footer.html'"></div>

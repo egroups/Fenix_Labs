@@ -1,0 +1,55 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block title %}
+	Proveedores
+{% endblock %}
+
+{% block body %}
+
+	<div class="panel contenedor panel-default">
+	<div class="panel-heading">Agregar Proveedor</div>
+	<div class="panel-body">
+	{{ form_start(form, {'action': path('sistema_agregar_proveedor'), 'method': 'POST',attr: {class: 'form-horizontal','data-toggle':'validator',role:'form'}}) }}
+	  <fieldset>
+		<legend>Datos</legend>
+	    <div class="form-group has-feedback" name="form-group-nombre" ng-class="form_group_nombre">
+	      <label for="inputNombre" class="col-lg-2 control-label">Nombre</label>
+	      <div class="col-lg-10">
+	      	{{ form_widget(form.nombre) }}
+	      </div>
+	      <div class="text-center help-block with-errors"></div>
+	    </div>
+	    <div class="form-group has-feedback" name="form-group-direccion" ng-class="form_group_direccion">
+	      <label for="inputDireccion" class="col-lg-2 control-label">Dirección</label>
+	      <div class="col-lg-10">
+	        {{ form_widget(form.direccion) }}
+	      </div>
+	      <div class="text-center help-block with-errors"></div>
+	    </div>
+	    <div class="form-group has-feedback" name="form-group-telefono" ng-class="form_group_telefono">
+	      <label for="inputTelefono" class="col-lg-2 control-label">Teléfono</label>
+	      <div class="col-lg-10">
+	        {{ form_widget(form.telefono) }}
+	      </div>
+	      <div class="text-center help-block with-errors"></div>
+	    </div>
+		<div class="col-md-4 col-md-offset-4">
+			<div class="btn-group">
+				<div class="col-xs-6">
+					{{ form_widget(form.agregarProveedor) }}
+				</div>
+				<div class="col-xs-6">
+					<a href="{{ path('sistema_listar_proveedores') }}" class="btn btn-primary button_class center-block" role="button">Volver</a>
+				</div>
+			</div>
+		</div>
+	  </fieldset>
+	{{ form_end(form) }}        
+	</div>
+	</div>	
+
+	{% for mensaje in app.session.flashBag.get('mensaje') %}
+	  {{ mensaje|raw }}
+	{% endfor %}
+
+{% endblock %}

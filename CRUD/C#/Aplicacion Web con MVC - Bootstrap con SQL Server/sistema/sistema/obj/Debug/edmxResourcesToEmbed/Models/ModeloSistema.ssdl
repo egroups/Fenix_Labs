@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sistemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="productos">
+    <Key>
+      <PropertyRef Name="id_producto" />
+    </Key>
+    <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_producto" Type="nvarchar" MaxLength="100" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" />
+    <Property Name="precio" Type="int" />
+    <Property Name="id_proveedor" Type="int" />
+    <Property Name="fecha_registro" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="proveedores">
+    <Key>
+      <PropertyRef Name="id_proveedor" />
+    </Key>
+    <Property Name="id_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_empresa" Type="nvarchar" MaxLength="100" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="100" />
+    <Property Name="telefono" Type="int" />
+    <Property Name="fecha_registro_proveedor" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="nvarchar" MaxLength="100" />
+    <Property Name="clave" Type="nvarchar" MaxLength="100" />
+    <Property Name="tipo" Type="int" />
+    <Property Name="fecha_registro" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="fk_productos">
+    <End Role="proveedores" Type="Self.proveedores" Multiplicity="0..1" />
+    <End Role="productos" Type="Self.productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proveedores">
+        <PropertyRef Name="id_proveedor" />
+      </Principal>
+      <Dependent Role="productos">
+        <PropertyRef Name="id_proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sistemaModelStoreContainer">
+    <EntitySet Name="productos" EntityType="Self.productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="proveedores" EntityType="Self.proveedores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_productos" Association="Self.fk_productos">
+      <End Role="proveedores" EntitySet="proveedores" />
+      <End Role="productos" EntitySet="productos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

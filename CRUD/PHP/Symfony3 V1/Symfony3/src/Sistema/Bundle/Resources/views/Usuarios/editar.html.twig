@@ -1,0 +1,76 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block title %}
+	Usuarios
+{% endblock %}
+
+{% block body %}
+
+	<div class="panel contenedor panel-default">
+	  <div class="panel-heading">Usuarios encontrados : {{cantidad_usuarios}}</div>
+	  <div class="panel-body">
+		<form action="{{path('sistema_buscar_usuarios')}}" method="POST" class="form-horizontal" name="form_busqueda">
+		  <fieldset>
+			<div class="form-group">
+			  <label for="inputBuscar" class="col-lg-2 control-label">Nombre</label>
+			  <div class="col-lg-10">
+				<input class="form-control" id="inputBuscar" placeholder="Nombre" name="nombre_buscar" type="text">
+			  </div>
+			</div>
+			<div class="form-group">
+				<button type="submit" name="busqueda" class="btn btn-primary center-block">Buscar</button>
+			</div>
+		  </fieldset>
+		</form>
+	  </div>
+	</div>
+
+	<div class="panel contenedor panel-default">
+	<div class="panel-heading">Editando al usuario {{ usuario.usuario }}</div>
+	<div class="panel-body">
+	<form action="{{path('sistema_editar_usuario')}}" method="POST" name="form_usuarios_editar" class="form-horizontal">
+	  <fieldset>
+		<legend>Datos</legend>
+		<input type="hidden" name="id_usuario" value="{{usuario.id}}">
+        <div class="form-group" name="form-group-nombre" ng-class="form_group_nombre">
+          <label for="inputNombre" class="col-lg-2 control-label">Nombre usuario</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputNombre" placeholder="Ingrese nombre usuario" type="text" type="text" name="nombre_usuario" value="{{ usuario.usuario }}" readonly="readonly">
+          </div>
+        </div>
+        <div class="form-group" name="form-group-password" ng-class="form_group_password">
+          <label for="inputPrecio" class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputPassword" placeholder="Ingrese password" type="password" name="password" readonly="readonly">
+          </div>
+        </div>
+        <div class="form-group" name="form-group-tipo" ng-class="form_group_tipo">
+          <label for="select" class="col-lg-2 control-label">Tipo</label>
+          <div class="col-lg-10">
+            <select class="form-control" id="inputTipo" name="tipo">
+				{% if usuario.tipo == 1 %}
+					<option value="2" selected="selected">Usuario</option>
+				{% else %}
+					<option value="2">Usuario</option>
+				{% endif %}
+				{% if usuario.tipo == 1 %}
+					<option value="1" selected="selected">Administrador</option>
+				{% else %}
+					<option value="1">Administrador</option>
+				{% endif %}
+            </select>
+          </div>
+        </div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary center-block" name="editar_usuario">Editar</button>
+		</div>
+	  </fieldset>
+	</form>        
+	</div>
+	</div>	
+
+	{% for mensaje in app.session.flashBag.get('mensaje') %}
+	  {{ mensaje|raw }}
+	{% endfor %}
+
+{% endblock %}

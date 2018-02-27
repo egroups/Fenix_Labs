@@ -1,0 +1,38 @@
+<div ng-include="'Content/templates/Header.html'"></div>
+<div ng-include="'Content/templates/BuscadorUsuarios.html'"></div>
+
+<div class="panel contenedor panel-default">
+  <div class="panel-heading">Agregar usuario</div>
+  <div class="panel-body">
+    <form ng-submit="newUsuario()" method="POST" name="form_usuarios" class="form-horizontal">
+      <fieldset>
+        <legend>Datos</legend>
+        <div class="form-group" name="form-group-nombre" ng-class="form_group_nombre">
+          <label for="inputNombre" class="col-lg-2 control-label">Nombre usuario</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputNombre" placeholder="{{nombre_usuario_placeholder}}" type="text" ng-model="usuario.nombre_usuario" type="text" name="nombre_usuario">
+          </div>
+        </div>
+        <div class="form-group" name="form-group-password" ng-class="form_group_password">
+          <label for="inputPrecio" class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-10">
+            <input class="form-control" id="inputPassword" placeholder="{{password_placeholder}}" type="password" ng-model="usuario.password" name="password">
+          </div>
+        </div>
+        <div class="form-group" name="form-group-tipo" ng-class="form_group_tipo">
+          <label for="select" class="col-lg-2 control-label">Tipo</label>
+          <div class="col-lg-10">
+            <select class="form-control" id="inputTipo" ng-model="usuario.tipo" name="tipo">
+				<option ng-repeat="tipo in tipos" value="{{tipo.id}}">{{tipo.nombre}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary center-block" name="agregar_usuario" id="agregar_usuario">{{ textButton }}</button>
+        </div>
+      </fieldset>
+    </form>        
+  </div>
+</div>
+
+<div ng-include="'Content/templates/Footer.html'"></div>

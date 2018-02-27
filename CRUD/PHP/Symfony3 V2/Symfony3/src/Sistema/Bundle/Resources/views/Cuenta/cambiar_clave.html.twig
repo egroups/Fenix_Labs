@@ -1,0 +1,49 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block title %}
+	Cambiar Clave
+{% endblock %}
+
+{% block body %}
+
+	<div class="panel contenedor panel-default">
+	<div class="panel-heading">Cambiar Clave</div>
+	<div class="panel-body">
+	  {{ form_start(form, {'action': path('sistema_cuenta_cambiar_clave'), 'method': 'POST',attr: {class: 'form-horizontal','data-toggle':'validator',role:'form'}}) }}	  
+	    <fieldset>
+	      <legend>Datos</legend>
+	      {{ form_widget(form.id) }}
+	      <div class="form-group has-feedback" name="form-group-usuario">
+	        <label for="inputNombre" class="col-lg-2 control-label">Usuario</label>
+	        <div class="col-lg-10">
+	          {{ form_widget(form.usuario) }}
+	        </div>
+	        <div class="text-center help-block with-errors"></div>
+	      </div>
+	      <div class="form-group has-feedback" name="form-group-anterior-clave">
+	        <label for="inputActual" class="col-lg-2 control-label">Actual Clave</label>
+	        <div class="col-lg-10">
+	          {{ form_widget(form.actual_clave) }}
+	        </div>
+	        <div class="text-center help-block with-errors"></div>
+	      </div>
+	      <div class="form-group has-feedback" name="form-group-nueva-clave">
+	        <label for="inputActual" class="col-lg-2 control-label">Nueva Clave</label>
+	        <div class="col-lg-10">
+	          {{ form_widget(form.nueva_clave) }}
+	        </div>
+	        <div class="text-center help-block with-errors"></div>
+	      </div>
+	      <div class="form-group">
+	          {{ form_widget(form.cambiarClave) }}
+	      </div>
+	    </fieldset>
+	  {{ form_end(form) }}       
+	</div>
+	</div>
+
+	{% for mensaje in app.session.flashBag.get('mensaje') %}
+	  {{ mensaje|raw }}
+	{% endfor %}
+
+{% endblock %}

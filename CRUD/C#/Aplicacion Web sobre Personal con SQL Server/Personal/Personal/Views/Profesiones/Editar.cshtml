@@ -1,0 +1,43 @@
+﻿@model Personal.Models.Profesion
+
+@{
+    ViewBag.Title = "Profesiones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel contenedor panel-default">
+    <div class="panel-heading">Editando la profesión @Model.nombre</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("GrabarEditar", "Profesiones", FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <fieldset>
+                @Html.HiddenFor( model => model.id)
+                <legend>Datos</legend>
+                <div class="form-group" name="form-group-nombre">
+                    @Html.LabelFor(model => model.nombre, "Nombre", new { @class = "col-lg-2 control-label" })
+                    <div class="col-lg-10">
+                        @Html.TextBoxFor(model => model.nombre, new { @class = "form-control", @placeholder = "Ingrese nombre" } )
+                    </div>
+                </div>
+		        <div class="col-md-4 col-md-offset-4">
+			        <div class="btn-group">
+				        <div class="col-xs-6">
+					        <button type="submit" class="btn btn-primary button_class center-block" name="editar_proveedor" id="editar_proveedor">Editar</button>
+				        </div>
+				        <div class="col-xs-6">
+					        <a href="@Url.Action("Index","Profesiones")" class="btn btn-primary button_class center-block" role="button">Volver</a>
+				        </div>
+			        </div>
+		        </div>
+            </fieldset>
+            }
+    </div>
+</div>
+
+@{
+    if(ViewBag.mensaje != null) {
+        @Html.Raw(ViewBag.mensaje);
+    }
+
+}

@@ -1,0 +1,30 @@
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.exe
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\bin\Debug\aplicacion.exe
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\bin\Debug\aplicacion.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.csprojResolveAssemblyReference.cache
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.frmCambiarContraseña.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.frmCambiarUsuario.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.frmHome.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.frmLogin.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.frmProductos.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.frmProveedores.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.frmReporte.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.frmUsuarios.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.Properties.Resources.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server\aplicacion\obj\x86\Debug\aplicacion.csproj.GenerateResource.Cache
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\bin\Debug\Aplicacion.exe.config
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\bin\Debug\Aplicacion.exe
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\bin\Debug\Aplicacion.pdb
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\aplicacion.FormCambiarClave.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\aplicacion.FormCambiarUsuario.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\aplicacion.FormHome.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\aplicacion.FormLogin.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\aplicacion.FormProductos.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\aplicacion.FormProveedores.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\aplicacion.FormReporte.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\aplicacion.FormUsuarios.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\Aplicacion.Properties.Resources.resources
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\aplicacion.csproj.GenerateResource.Cache
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\Aplicacion.exe
+C:\Users\Sin Decidir\Desktop\Biblioteca de códigos\Fenix Labs\Contenido\C#\Aplicacion con SQL Server V2\aplicacion\obj\x86\Debug\Aplicacion.pdb

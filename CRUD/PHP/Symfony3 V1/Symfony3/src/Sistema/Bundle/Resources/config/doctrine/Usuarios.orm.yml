@@ -1,0 +1,24 @@
+Sistema\Bundle\Entity\Usuarios:
+    type: entity
+    table: null
+    repositoryClass: Sistema\Bundle\Repository\UsuariosRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        usuario:
+            type: string
+            length: 255
+        clave:
+            type: string
+            length: 255
+        tipo:
+            type: integer
+        fechaRegistro:
+            type: string
+            length: 255
+            column: fecha_registro
+    lifecycleCallbacks: {  }

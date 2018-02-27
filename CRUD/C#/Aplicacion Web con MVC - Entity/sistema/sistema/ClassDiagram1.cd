@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="sistema.BundleConfig" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.FilterConfig" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.RouteConfig" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.WebApiConfig" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\WebApiConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.MvcApplication" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Controllers.AdministracionController" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAABAQIEhQAABcAAAAAAQRAAAAAAAEAUBEAABAgE=</HashCode>
+      <FileName>Controllers\AdministracionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Controllers.HomeController" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Controllers.LoginController" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAEAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\LoginController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Controllers.ProveedoresController" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAIAAAA=</HashCode>
+      <FileName>Controllers\ProveedoresController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Controllers.TestController" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\TestController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Conexiones.Conexion" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QJABsASMcAAhEAAAAEEAAABAAAAQBIAAAECAUQAAAAA=</HashCode>
+      <FileName>Funciones\Conexion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Funciones.Funciones" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAUAAAAA=</HashCode>
+      <FileName>Funciones\Funciones.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Models.BuscadorModel" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdministracionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Models.CambiarUsuarioModel" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAEAAAAgAAAAA=</HashCode>
+      <FileName>Models\AdministracionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Models.CambiarPasswordModel" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAgAACAA=</HashCode>
+      <FileName>Models\AdministracionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Models.ProveedorModel" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\AdministracionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Models.ProductoModel" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAABAAAAAAAAAAAEAAAAAAAAAEAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\AdministracionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Models.UsuarioModel" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAACAACAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\AdministracionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Models.AsignarUsuarioModel" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAACAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdministracionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Models.LogOnModel" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAAAAA=</HashCode>
+      <FileName>Models\LoginModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Reportes.Reporte" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAJAAAQAAAAAAAIAAAAAAAAAAAACAABAAAABAA=</HashCode>
+      <FileName>Reportes\Reporte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Reportes.CachedReporte" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAFAEAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Reportes\Reporte.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="sistema.Models.productos" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAQBAAAAAAAAAQAEAAAAAAAAAEAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\productos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Models.proveedores" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAABAIAAAAAAAACEAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\proveedores.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sistema.Models.usuarios" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAQACAAAAAAAAAAAQAAAAQAAAAAAA=</HashCode>
+      <FileName>Models\usuarios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,25 @@
+Sistema\Bundle\Entity\Proveedores:
+    type: entity
+    table: null
+    repositoryClass: Sistema\Bundle\Repository\ProveedoresRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombreEmpresa:
+            type: string
+            length: 255
+            column: nombre_empresa
+        direccion:
+            type: string
+            length: 255
+        telefono:
+            type: integer
+        fechaRegistroProveedor:
+            type: string
+            length: 255
+            column: fecha_registro_proveedor
+    lifecycleCallbacks: {  }

@@ -1,0 +1,65 @@
+﻿@using sistema.Funciones;
+@using sistema.Conexiones;
+@using sistema.Models;
+
+@{
+    Funciones funcion = new Funciones();
+    Conexion conexion_now = new Conexion();
+
+    int id_usuario = ViewBag.id_usuario;
+
+    usuarios usuario_load = new usuarios();
+    usuario_load = conexion_now.cargarUsuario(id_usuario);
+    string id_usuario_real = usuario_load.id_usuario.ToString();
+    string nombre_usuario = usuario_load.usuario;
+    string tipo = usuario_load.tipo.ToString();
+
+}
+
+<div class="panel contenedor panel-default">
+    <div class="panel-heading">Editando al usuario @nombre_usuario</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Editar", "Usuarios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <input type="hidden" name="id_usuario" value="@id_usuario_real">
+            <fieldset>
+                <legend>Datos</legend>
+                <div class="form-group" name="form-group-nombre">
+                    <label for="inputNombre" class="col-lg-2 control-label">Nombre usuario</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputNombre" placeholder="Ingrese nombre usuario" type="text" name="nombre_usuario" readonly="readonly" value="@nombre_usuario">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-password">
+                    <label for="inputPrecio" class="col-lg-2 control-label">Password</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputPassword" placeholder="Ingrese password" type="password" name="password" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-tipo">
+                    <label for="select" class="col-lg-2 control-label">Tipo</label>
+                    <div class="col-lg-10">
+                        <select class="form-control" id="select" name="tipo">
+                            @if (tipo == "2")
+                            {
+                                <option value="2" selected="true">Usuario</option>
+                                <option value="1">Administrador</option>
+                            }
+                            @if (tipo == "1")
+                            {
+                                <option value="2">Usuario</option>
+                                <option value="1" selected="true">Administrador</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default" name="editar_usuario" id="editar_usuario">Editar</button>
+                        <button type="submit" class="btn btn-primary" name="cancelar_usuario" id="cancelar_usuario">Cancelar</button>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>

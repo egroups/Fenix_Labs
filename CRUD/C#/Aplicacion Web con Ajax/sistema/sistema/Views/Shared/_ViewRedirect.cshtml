@@ -1,0 +1,23 @@
+﻿@{
+    if (ViewBag.estado != null)
+    {
+        string titulo = ViewBag.titulo;
+        string contenido = ViewBag.contenido;
+        string tipo = ViewBag.tipo;
+        string url = ViewBag.url;
+        if (contenido != "")
+        {
+            <script>
+                swal({
+                    title: '@titulo',
+                    text: '@contenido',
+                    type: '@tipo',
+                    html: true,
+                    animation: false
+                }, function () {
+                    window.location.href = "@url";
+                });
+            </script>;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+﻿@{
+    if (ViewBag.estado != null && ViewBag.mensaje!=null && ViewBag.accion!=null && ViewBag.controlador!=null)
+    {
+        int estado = ViewBag.estado;
+        string mensaje = ViewBag.mensaje;
+        string url = Url.Action(ViewBag.accion,ViewBag.controlador);
+        if (estado==1 && mensaje != "")
+        {
+            <script>alert("@mensaje");</script>;
+            <meta http-equiv="refresh" content='0; url="@url"' />
+        }
+    }
+}

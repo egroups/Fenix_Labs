@@ -1,0 +1,25 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block title %}
+	Usuarios
+{% endblock %}
+
+{% block body %}
+
+	<div class="jumbotron">
+	  <form action="{{path('sistema_borrar_usuario')}}" method="POST" class="form-horizontal" name="form_usuarios">
+	  	  <input type="hidden" name="id_usuario" value="{{usuario.id}}">
+		  <center>
+			  <h1>Eliminar usuario</h1></br>
+			  <p>¿Estás seguro que deseas eliminar al usuario {{ usuario.usuario }}?</p></br>
+			  <button type="submit" name="borrar_usuario" class="btn-lg btn-danger">Eliminar</button>
+			  <button type="submit" name="volver_usuario" class="btn-lg btn-primary">Volver</button>
+		  </center>
+	  </form>
+	</div>
+
+	{% for mensaje in app.session.flashBag.get('mensaje') %}
+	  {{ mensaje|raw }}
+	{% endfor %}
+
+{% endblock %}

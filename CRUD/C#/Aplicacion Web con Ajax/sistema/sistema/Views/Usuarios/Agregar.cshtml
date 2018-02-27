@@ -1,0 +1,36 @@
+﻿<div class="panel contenedor panel-default">
+    <div class="panel-heading">Agregar usuario</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Agregar", "Usuarios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <fieldset>
+                <legend>Datos</legend>
+                <div class="form-group" name="form-group-nombre">
+                    <label for="inputNombre" class="col-lg-2 control-label">Nombre usuario</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputNombre" placeholder="Ingrese nombre usuario" type="text" name="nombre_usuario">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-password">
+                    <label for="inputPrecio" class="col-lg-2 control-label">Password</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputPassword" placeholder="Ingrese password" type="password" name="password">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-tipo">
+                    <label for="select" class="col-lg-2 control-label">Tipo</label>
+                    <div class="col-lg-10">
+                        <select class="form-control" id="select" name="tipo">
+                            <option value="2">Usuario</option>
+                            <option value="1">Administrador</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary center-block" name="agregar_usuario" id="agregar_usuario">Agregar</button>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>
+

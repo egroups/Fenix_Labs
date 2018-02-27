@@ -1,0 +1,183 @@
+﻿@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/Shared/_ViewAdmin.cshtml";
+}
+
+@using sistema.Funciones;
+@using sistema.Conexiones;
+@using sistema.Models;
+
+@{
+    Funciones funcion = new Funciones();
+    Conexion conexion_now = new Conexion();
+
+    string nombre_buscador = "";
+
+    if (ViewBag.nombre_buscar != null)
+    {
+        nombre_buscador = ViewBag.nombre_buscar;
+    }
+
+    int buscador_activo = 0;
+
+    if (ViewBag.buscador_activo != null)
+    {
+        buscador_activo = ViewBag.buscador_activo;
+    }
+
+    List<usuarios> usuarios = new List<usuarios>();
+    int cantidad_usuarios = 0;
+
+    if (buscador_activo == 1)
+    {
+
+        if (nombre_buscador == null)
+        {
+            usuarios = conexion_now.listarUsuarios("");
+        }
+        else
+        {
+            usuarios = conexion_now.listarUsuarios(nombre_buscador);
+        }
+
+    }
+    else
+    {
+        usuarios = conexion_now.listarUsuarios("");
+    }
+
+    cantidad_usuarios = usuarios.Count;
+
+    int check_editar = 0;
+    if (ViewBag.modoEditar != null)
+    {
+        check_editar = ViewBag.modoEditar;
+    }
+    int id_usuario = 0;
+    if (check_editar == 1)
+    {
+        if (ViewBag.id_usuario != null)
+        {
+            id_usuario = ViewBag.id_usuario;
+        }
+    }
+
+}
+
+<div class="login">
+<h1>Usuarios encontrados : @cantidad_usuarios</h1>
+
+@if (@buscador_activo != 1)
+{
+<br>
+    using (Html.BeginForm("BuscarUsuarios", "Administracion", FormMethod.Post, new { }))
+    {
+<b>Nombre : </b><input type="text" name="nombre_buscar"><button class="small button" name="busqueda" type="submit">Buscar</button>
+    }
+}
+else
+{
+    if (cantidad_usuarios == 0)
+    {
+        <center><b>No se encontraron usuarios</b></center>
+    }
+    else
+    {
+            <div class="datagrid">
+            <table><thead>
+            <th>Nombre</th><th>Tipo</th><th>Fecha registro</th><th>Opción</th>
+            @foreach (var usuario in usuarios)
+            {
+                string tipo_real = "";
+                string tipo = usuario.tipo.ToString();
+                if (tipo == "1")
+                {
+                    tipo_real = "Administrador";
+                }
+                else
+                {
+                    tipo_real = "Usuario";
+                }
+                
+    <tr><td>@usuario.usuario</td>
+    <td>@tipo_real</td>
+    <td>@usuario.fecha_registro</td>
+    <td><a href="/Administracion/Usuarios/Editar/@usuario.id_usuario"><img src="@Url.Content("~/Content/images/edit.png")" title="Editar"></a> <a href="/Administracion/Usuarios/Borrar/@usuario.id_usuario"><img src="@Url.Content("~/Content/images/delete.png")" title="Borrar"></a></td></tr>              
+            }           
+            </thead></table> 
+            </div><br>  
+    }
+}
+</div><br>
+
+@if (check_editar == 0)
+{
+
+<div class="login">
+<center>
+<h1>Agregar usuario</h1>
+@using (Html.BeginForm("AgregarUsuario", "Administracion", FormMethod.Post, new { }))
+{  
+            
+<b>Nombre usuario : </b><input type="text" name="nombre_usuario"><br>
+<b>Password : </b><input type="password" name="password"><br><br>
+            
+<b>Tipo : </b><select name="tipo">
+<option value="2">Usuario</option>
+<option value="1">Administrador</option>
+</select><br><br>
+        
+<button class="small button" name="agregar_usuario" type="submit">Agregar</button>
+}
+      
+</center>         
+</div><br>
+    
+}
+else
+{
+
+    usuarios usuario_load = new usuarios();
+    usuario_load = conexion_now.cargarUsuario(id_usuario);
+    string id_usuario_real = usuario_load.id_usuario.ToString();
+    string nombre_usuario = usuario_load.usuario;
+    string tipo = usuario_load.tipo.ToString();
+    
+<div class="login">
+<center>
+<h1>Editar al usuario @nombre_usuario</h1>
+@using (Html.BeginForm("AsignarUsuario", "Administracion", FormMethod.Post, new { }))
+{
+<input type="hidden" name="id_usuario" value="@id_usuario_real">            
+<b>Nombre usuario : </b><input type="text" name="nombre_usuario" readonly="readonly" value="@nombre_usuario"><br>
+<b>Password : </b><input type="password" name="password" readonly="readonly"><br><br>
+            
+<b>Tipo : </b><select name="tipo">
+@if(tipo=="2") {
+<option value="2" selected="true">Usuario</option>
+<option value="1">Administrador</option>
+}
+@if(tipo=="1") {
+<option value="2">Usuario</option>
+<option value="1" selected="true">Administrador</option>
+}
+</select><br><br>
+        
+<button class="small button" name="editar_usuario" type="submit">Editar</button>
+}
+      
+</center>         
+</div><br>
+          
+}
+
+@{
+    if (ViewBag.estado != null)
+    {
+        string mensaje = ViewBag.mensaje;
+        if (mensaje != "")
+        {
+            <script>alert("@mensaje");</script>;
+        }
+    }
+}

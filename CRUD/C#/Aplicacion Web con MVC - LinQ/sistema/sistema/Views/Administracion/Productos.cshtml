@@ -1,0 +1,205 @@
+﻿@{
+    ViewBag.Title = "Productos";
+    Layout = "~/Views/Shared/_ViewAdmin.cshtml";
+}
+
+@using sistema.Funciones;
+@using sistema.Conexiones;
+@using sistema.Models;
+
+@{
+    Funciones funcion = new Funciones();
+    Conexion conexion_now = new Conexion();
+
+    string nombre_buscador = "";
+
+    if (ViewBag.nombre_buscar != null)
+    {
+        nombre_buscador = ViewBag.nombre_buscar;
+    }
+
+    int buscador_activo = 0;
+
+    if (ViewBag.buscador_activo != null)
+    {
+        buscador_activo = ViewBag.buscador_activo;
+    }
+
+    List<productos> productos = new List<productos>();
+    int cantidad_productos = 0;
+
+    if (buscador_activo == 1)
+    {
+
+        if (nombre_buscador == null)
+        {
+            productos = conexion_now.listarProductos("");
+        }
+        else
+        {
+            productos = conexion_now.listarProductos(nombre_buscador);
+        }
+
+    }
+    else
+    {
+        productos = conexion_now.listarProductos("");
+    }
+
+    cantidad_productos = productos.Count;
+
+    int cantidad_proveedores = 0;
+
+    List<proveedores> proveedores = new List<proveedores>();
+    proveedores = conexion_now.listarProveedores("");
+    cantidad_proveedores = proveedores.Count;
+
+    int check_editar = 0;
+    if (ViewBag.modoEditar != null)
+    {
+        check_editar = ViewBag.modoEditar;
+    }
+    int id_producto = 0;
+    if (check_editar == 1)
+    {
+        if (ViewBag.id_producto != null)
+        {
+            id_producto = ViewBag.id_producto;
+        }
+    }
+
+}
+
+<div class="login">
+<h1>Productos encontrados : @cantidad_productos</h1>
+
+@if (@buscador_activo != 1)
+{
+<br>
+    using (Html.BeginForm("BuscarProductos", "Administracion", FormMethod.Post, new { }))
+    {
+<b>Nombre : </b><input type="text" name="nombre_buscar"><button class="small button" name="busqueda" type="submit">Buscar</button>
+    }
+}
+else
+{
+    if (cantidad_productos == 0)
+    {
+        <center><b>No se encontraron productos</b></center>
+    }
+    else
+    {
+            <div class="datagrid">
+            <table><thead>
+            <th>Nombre producto</th><th>Descripcion</th><th>Precio</th><th>Proveedor</th><th>Fecha registro</th><th>Opción</th>
+            @foreach (var producto in productos)
+            {
+                string nombre_proveedor = conexion_now.cargarNombreProveedor(Int32.Parse(producto.id_proveedor.ToString()));
+    <tr><td>@producto.nombre_producto</td>
+    <td>@producto.descripcion</td>
+    <td>@producto.precio</td>
+    <td>@nombre_proveedor</td>
+    <td>@producto.fecha_registro</td>
+    <td><a href="/Administracion/Productos/Editar/@producto.id_producto"><img src="@Url.Content("~/Content/images/edit.png")" title="Editar"></a> <a href="/Administracion/Productos/Borrar/@producto.id_producto"><img src="@Url.Content("~/Content/images/delete.png")" title="Borrar"></a></td></tr>              
+            }           
+            </thead></table> 
+            </div><br>  
+    }
+}
+</div><br>
+
+@if (check_editar == 0)
+{
+
+<div class="login">
+<center>
+<h1>Agregar producto</h1>
+@using (Html.BeginForm("AgregarProducto", "Administracion", FormMethod.Post, new { }))
+{  
+            
+<b>Nombre producto : </b><input type="text" name="nombre_producto"><br><br>
+<b>Descripción : </b><br><br><textarea cols=50 rows=10 name="descripcion" style="border-style: inset;;border-width: 1px;border-color:black;"></textarea><br><br>
+<b>Precio : &nbsp;$</b><input type="text" name="precio" style="width: 80px;"><br><br>
+
+    if (cantidad_proveedores == 0)
+    {
+<b>Proveedor : </b><select name="id_proveedor" style="border-style: inset;;border-width: 1px;border-color:black;">
+<option value="null">No se encontraron proveedores</option>
+</select><br><br>
+    }
+    else
+    {
+<b>Proveedor : </b><select name="id_proveedor" style="border-style: inset;;border-width: 1px;border-color:black;">
+@foreach (var proveedor in proveedores)
+{
+<option value="@proveedor.id_proveedor">@proveedor.nombre_empresa</option>
+}
+</select><br><br>
+    }
+    
+<button class="small button" name="agregar_producto" type="submit">Agregar</button>
+}
+</center>
+</div>
+<br>
+}
+else
+{
+
+    productos producto_load = new productos();
+    producto_load = conexion_now.cargarProducto(id_producto);
+
+    string id_producto_real = producto_load.id_producto.ToString();
+    string nombre_producto = producto_load.nombre_producto;
+    string descripcion = producto_load.descripcion;
+    string precio = producto_load.precio.ToString();
+    string id_proveedor = producto_load.id_proveedor.ToString();
+
+<div class="login">
+<center>
+<h1>Editar al producto @nombre_producto</h1>
+@using (Html.BeginForm("EditarProducto", "Administracion", FormMethod.Post, new { }))
+{  
+<input type="hidden" name="id_producto" value="@id_producto_real">            
+<b>Nombre producto : </b><input type="text" name="nombre_producto" value="@nombre_producto"><br><br>
+<b>Descripción : </b><br><br><textarea cols=50 rows=10 name="descripcion" style="border-style: inset;;border-width: 1px;border-color:black;">@descripcion</textarea><br><br>
+<b>Precio : &nbsp;$</b><input type="text" name="precio" value="@precio" style="width: 80px;"><br><br>
+
+    if (cantidad_proveedores == 0)
+    {
+<b>Proveedor : </b><select name="id_proveedor" style="border-style: inset;;border-width: 1px;border-color:black;">
+<option value="null">No se encontraron proveedores</option>
+</select><br><br>
+    }
+    else
+    {
+<b>Proveedor : </b><select name="id_proveedor" style="border-style: inset;;border-width: 1px;border-color:black;">
+@foreach (var proveedor in proveedores)
+{
+if(proveedor.id_proveedor.ToString()==id_proveedor.ToString()) {
+<option value="@proveedor.id_proveedor" selected="true">@proveedor.nombre_empresa</option>
+} else {
+<option value="@proveedor.id_proveedor">@proveedor.nombre_empresa</option>
+}
+}
+</select><br><br>
+    }
+    
+<button class="small button" name="editar_producto" type="submit">Editar</button>
+}
+</center>
+</div>
+<br>    
+        
+}
+
+@{
+    if (ViewBag.estado != null)
+    {
+        string mensaje = ViewBag.mensaje;
+        if (mensaje != "")
+        {
+            <script>alert("@mensaje");</script>;
+        }
+    }
+}

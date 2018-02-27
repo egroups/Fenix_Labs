@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Redirect";
+    Layout = "~/Views/Shared/_ViewAdmin.cshtml";
+}
+
+@{
+    if (ViewBag.estado != null && ViewBag.titulo != null && ViewBag.contenido != null && ViewBag.tipo != null && ViewBag.accion != null && ViewBag.controlador != null)
+    {
+        int estado = ViewBag.estado;
+        string titulo = ViewBag.titulo;
+        string contenido = ViewBag.contenido;
+        string tipo = ViewBag.tipo;
+        string url = Url.Action(ViewBag.accion, ViewBag.controlador);
+        if (estado == 1 && contenido != "")
+        {
+            <script>
+                swal({
+                    title: "@titulo",
+                    text: "@contenido",
+                    type: "@tipo"
+                }, function () {
+                    window.location = "@url";
+                });
+            </script>;
+        }
+    }
+}

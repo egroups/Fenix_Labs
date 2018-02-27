@@ -1,0 +1,28 @@
+@charset "utf-8";
+.logo {
+	padding-top: 10px;
+}
+.footer {
+
+}
+.contenidos {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.contenedor {
+	min-height:450px;
+}
+.menu1 {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 300px;
+}
+.content1 {
+	margin-top: 10px;
+}
+.menu2 {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}

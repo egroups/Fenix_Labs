@@ -1,0 +1,44 @@
+<div ng-include="'Content/templates/Header.html'"></div>
+<div ng-include="'Content/templates/BuscadorProductos.html'"></div>
+
+<div class="panel contenedor panel-default">
+<div class="panel-heading">Agregar Producto</div>
+<div class="panel-body">
+<form ng-submit="newProducto()" method="POST" name="form_productos" class="form-horizontal">
+  <fieldset>
+    <legend>Datos</legend>
+    <div class="form-group" name="form-group-nombre" ng-class="form_group_nombre">
+      <label for="inputNombre" class="col-lg-2 control-label">Nombre producto</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="inputNombre" placeholder="{{nombre_producto_placeholder}}" type="text" ng-model="producto.nombre_producto">
+      </div>
+    </div>
+    <div class="form-group" name="form-group-descripcion" ng-class="form_group_descripcion">
+      <label for="textArea" class="col-lg-2 control-label">Descripcion</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="inputDescripcion" placeholder="{{descripcion_placeholder}}" ng-model="producto.descripcion"></textarea>
+      </div>
+    </div>
+    <div class="form-group" name="form-group-precio" ng-class="form_group_precio">
+      <label for="inputPrecio" class="col-lg-2 control-label">Precio</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="inputPrecio" placeholder="{{precio_placeholder}}" type="text" ng-model="producto.precio">
+      </div>
+    </div>
+    <div class="form-group" name="form-group-proveedor" ng-class="form_group_proveedor">
+      <label for="select" class="col-lg-2 control-label">Proveedor</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="inputProveedor" ng-model="producto.proveedor">
+             <option ng-repeat="proveedor in proveedores" value="{{proveedor}}">{{proveedor.nombre_empresa}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary center-block" name="agregar_producto" id="agregar_producto">{{ textButton }}</button>
+    </div>
+  </fieldset>
+</form>        
+</div>
+</div>
+
+<div ng-include="'Content/templates/Footer.html'"></div>

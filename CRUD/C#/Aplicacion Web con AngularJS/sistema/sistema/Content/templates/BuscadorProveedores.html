@@ -1,0 +1,41 @@
+﻿<div class="panel contenedor panel-default">
+  <div class="panel-heading">Proveedores encontrados : {{proveedores.length}}</div>
+  <div class="panel-body">
+    <fieldset>
+      <div class="form-group">
+        <label for="inputBuscar" class="col-lg-2 control-label">Nombre</label>
+        <div class="col-lg-10">
+          <input class="form-control" type="text" ng-model="buscador"/>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<div class="panel contenedor panel-default" ng-show="(proveedores| filter:{nombre_empresa:buscador}).length">
+  <div class="panel-heading">Proveedores encontrados : {{(proveedores|filter:{nombre_empresa:buscador}).length}}</div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="fila_proveedor">Nombre</th>
+            <th class="fila_proveedor">Direccion</th>
+            <th class="fila_proveedor">Telefono</th>
+            <th class="fila_proveedor">Fecha</th>
+            <th class="fila_proveedor">Opción</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="proveedor in proveedores | filter: { nombre_empresa : buscador }">
+          <td class="filterable-cell fila_proveedor">{{proveedor.nombre_empresa}}</td>
+          <td class="filterable-cell fila_proveedor">{{proveedor.direccion}}</td>
+          <td class="filterable-cell fila_proveedor">{{proveedor.telefono}}</td>
+          <td class="filterable-cell fila_proveedor">{{proveedor.fecha_registro_proveedor}}</td>
+  		    <td class="filterable-cell fila_proveedor"><a href="#/proveedores/{{proveedor.id}}/editar"><img src="Content/images/edit.png" title="Editar"></a> <a href="#/proveedores/{{proveedor.id}}/borrar" class="button expand alert""><img src="Content/images/delete.png" title="Borrar"></a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div> 
+  </div>
+</div>

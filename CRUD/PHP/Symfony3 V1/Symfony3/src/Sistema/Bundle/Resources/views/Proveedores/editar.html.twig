@@ -1,0 +1,65 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block title %}
+	Proveedores
+{% endblock %}
+
+{% block body %}
+
+	<div class="panel contenedor panel-default">
+	  <div class="panel-heading">Proveedores encontrados : {{cantidad_proveedores}}</div>
+	  <div class="panel-body">
+		<form action="{{path('sistema_buscar_proveedores')}}" method="POST" class="form-horizontal" name="form_busqueda">
+		  <fieldset>
+			<div class="form-group">
+			  <label for="inputBuscar" class="col-lg-2 control-label">Nombre</label>
+			  <div class="col-lg-10">
+				<input class="form-control" id="inputBuscar" placeholder="Nombre" name="nombre_buscar" type="text">
+			  </div>
+			</div>
+			<div class="form-group">
+				<button type="submit" name="busqueda" class="btn btn-primary center-block">Buscar</button>
+			</div>
+		  </fieldset>
+		</form>
+	  </div>
+	</div>
+
+	<div class="panel contenedor panel-default">
+	<div class="panel-heading">Editar al proveedor {{proveedor.nombreEmpresa}}</div>
+	<div class="panel-body">
+	<form action="{{path('sistema_editar_proveedor')}}" method="POST" name="form_proveedores" class="form-horizontal">
+	  <fieldset>
+		<legend>Datos</legend>
+		<input type="hidden" name="id_proveedor" value="{{proveedor.id}}">
+	    <div class="form-group" name="form-group-nombre" ng-class="form_group_nombre">
+	      <label for="inputNombre" class="col-lg-2 control-label">Nombre empresa</label>
+	      <div class="col-lg-10">
+	        <input class="form-control" id="inputNombre" placeholder="Ingrese nombre empresa" type="text" name="nombre_empresa" value="{{proveedor.nombreEmpresa}}">
+	      </div>
+	    </div>
+	    <div class="form-group" name="form-group-direccion" ng-class="form_group_direccion">
+	      <label for="inputDireccion" class="col-lg-2 control-label">Direccion</label>
+	      <div class="col-lg-10">
+	        <input class="form-control" id="inputDireccion" placeholder="Ingrese direccion" type="text" name="direccion" value="{{proveedor.direccion}}">
+	      </div>
+	    </div>
+	    <div class="form-group" name="form-group-telefono" ng-class="form_group_telefono">
+	      <label for="inputTelefono" class="col-lg-2 control-label">Telefono</label>
+	      <div class="col-lg-10">
+	        <input class="form-control" id="inputTelefono" placeholder="Ingrese telefono" type="text" name="telefono" value="{{proveedor.telefono}}">
+	      </div>
+	    </div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary center-block" name="editar_proveedor">Editar</button>
+		</div>
+	  </fieldset>
+	</form>        
+	</div>
+	</div>	
+
+	{% for mensaje in app.session.flashBag.get('mensaje') %}
+	  {{ mensaje|raw }}
+	{% endfor %}
+
+{% endblock %}

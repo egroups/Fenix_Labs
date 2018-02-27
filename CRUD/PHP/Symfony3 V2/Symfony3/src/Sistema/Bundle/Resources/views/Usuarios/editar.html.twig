@@ -1,0 +1,56 @@
+{% extends '::layout_admin.html.twig' %}
+
+{% block title %}
+	Usuarios
+{% endblock %}
+
+{% block body %}
+
+	<div class="panel contenedor panel-default">
+	<div class="panel-heading">Editando al usuario {{ usuario.nombre }}</div>
+	<div class="panel-body">
+	{{ form_start(form, {'action': path('sistema_editar_usuario'), 'method': 'POST',attr: {class: 'form-horizontal','data-toggle':'validator',role:'form'}}) }}
+	  <fieldset>
+		<legend>Datos</legend>
+		{{ form_widget(form.id) }}
+        <div class="form-group has-feedback" name="form-group-nombre">
+          <label for="inputNombre" class="col-lg-2 control-label">Nombre</label>
+          <div class="col-lg-10">
+            {{ form_widget(form.nombre) }}
+          </div>
+          <div class="text-center help-block with-errors"></div>
+        </div>
+        <div class="form-group has-feedback" name="form-group-password">
+          <label for="inputClave" class="col-lg-2 control-label">Clave</label>
+          <div class="col-lg-10">
+            {{ form_widget(form.clave) }}
+          </div>
+          <div class="text-center help-block with-errors"></div>
+        </div>
+        <div class="form-group has-feedback" name="form-group-tipo">
+          <label for="select" class="col-lg-2 control-label">Tipo</label>
+          <div class="col-lg-10">
+          	{{ form_widget(form.tipo) }}
+          </div>
+          <div class="text-center help-block with-errors"></div>
+        </div>
+        <div class="col-md-4 col-md-offset-4">
+          <div class="btn-group">
+            <div class="col-xs-6">
+              {{ form_widget(form.editarUsuario) }}
+            </div>
+            <div class="col-xs-6">
+              <a href="{{ path('sistema_listar_usuarios') }}" class="btn btn-primary button_class center-block" role="button">Volver</a>
+            </div>
+          </div>
+        </div>
+	  </fieldset>
+	{{ form_end(form) }}        
+	</div>
+	</div>	
+
+	{% for mensaje in app.session.flashBag.get('mensaje') %}
+	  {{ mensaje|raw }}
+	{% endfor %}
+
+{% endblock %}

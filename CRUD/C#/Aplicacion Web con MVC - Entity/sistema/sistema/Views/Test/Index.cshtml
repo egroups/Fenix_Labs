@@ -1,0 +1,88 @@
+﻿@using sistema.Conexiones;
+@using sistema.Models;
+
+@{
+
+    Conexion conexion_now = new Conexion();
+
+    //conexion_now.agregarProveedor("test","test",123);
+    //conexion_now.editarProveedor(4,"new","new",69);
+    //conexion_now.borrarProveedor(4);
+    //string nombre_empresa = conexion_now.cargarNombreProveedor(8);
+    //conexion_now.agregarProducto("test","test",100,1);
+    //conexion_now.editarProducto(6,"now","now",69,3);
+    //conexion_now.borrarProducto(6);
+    //conexion_now.agregarUsuario("user","user",1);
+    //conexion_now.cambiar_usuario(2,"new_user");
+    //conexion_now.cambiar_password(2,"new_pass");
+    //conexion_now.asignar_usuario(2,2);
+    
+    
+    
+    List<proveedores> proveedores = conexion_now.listarProveedores("");
+    List<productos> productos = conexion_now.listarProductos("");
+    List<usuarios> usuarios = conexion_now.listarUsuarios("");
+    
+    
+}
+
+Usuarios
+
+<br><br>
+
+@foreach (var usuario in usuarios)
+{
+    @usuario.id_usuario
+    <br>
+    @usuario.usuario
+    <br>
+    @usuario.clave
+    <br>
+    @usuario.tipo
+    <br>
+    @usuario.fecha_registro
+    <br><br>
+}
+
+<br><br>
+
+Productos
+
+<br><br>
+
+@foreach (var producto in productos)
+{
+    @producto.id_producto
+    <br>
+    @producto.nombre_producto
+    <br>
+    @producto.descripcion
+    <br>
+    @producto.precio
+    <br>
+    @producto.id_proveedor
+    <br>
+    @producto.fecha_registro
+    <br><br>
+}
+
+<br><br>
+
+Proveedores
+
+<br><br>
+
+
+@foreach (var proveedor in proveedores)
+{
+    @proveedor.id_proveedor
+    <br>
+    @proveedor.nombre_empresa
+    <br>
+    @proveedor.direccion
+    <br>
+    @proveedor.telefono
+    <br>
+    @proveedor.fecha_registro_proveedor
+    <br><br>
+}

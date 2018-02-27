@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="ProveedorBO" class="sistema.bo.ProveedorBOImpl">
+		<property name="ProveedorDAO" ref="ProveedorDAO" />
+	</bean>
+        
+	<bean id="ProveedorDAO" class="sistema.dao.JdbcProveedorDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>

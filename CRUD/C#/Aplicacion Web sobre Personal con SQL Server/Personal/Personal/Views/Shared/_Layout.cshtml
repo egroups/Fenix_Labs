@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf8-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>@ViewBag.Title</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/Content/Scripts")
+    </head>
+    <body>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item active"><a href="@Url.Action("Index","Home")">Home</a></li>
+			<li class="breadcrumb-item"><a href="@Url.Action("Index","Empleados")">Empleados</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Index","Profesiones")">Profesiones</a></li>
+		</ol>
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </body>
+</html>

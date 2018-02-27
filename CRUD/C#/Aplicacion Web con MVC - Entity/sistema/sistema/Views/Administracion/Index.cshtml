@@ -1,0 +1,34 @@
+﻿@using sistema.Conexiones;
+
+@{
+    Layout = "~/Views/Shared/_ViewAdmin.cshtml";
+}
+
+@{
+
+    Conexion conexion_now = new Conexion();
+    
+    var userInCookie = Request.Cookies["user_login"];
+
+    string username = "";
+    string tipo_user = "";
+    
+    if (userInCookie != null)
+    {
+
+        string cookie_content = userInCookie.Value;
+        username = conexion_now.get_username_in_cookie(cookie_content);
+
+        if (conexion_now.es_admin(username))
+        {
+            tipo_user = "administrador";
+        }
+        else
+        {
+            tipo_user = "usuario";
+        }
+    }
+}
+                
+
+<center><h1><font color="white">Bienvenido a la administración @tipo_user @username</font></h1></center><br>

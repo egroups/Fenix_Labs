@@ -1,0 +1,58 @@
+﻿@charset "utf-8";
+
+.contenedor {
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+table {
+    width: 100%;
+}
+
+thead, tbody, tr, td, th { display: block; }
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+thead th {
+    height: 30px;
+
+    /*text-align: left;*/
+}
+
+tbody {
+    height: 120px;
+    overflow-y: auto;
+}
+
+thead {
+    /* fallback */
+}
+
+
+tbody td{
+    width: 16.5%;
+    float: left;
+}
+
+.fila_empleado {
+    width: 16.5%;
+    float: left;
+}
+
+.fila_profesion {
+    width: 50%;
+    float: left;
+}
+
+.button_class {
+    width: 110px;
+}
+
+.right_space {
+    margin-right:5px;
+}

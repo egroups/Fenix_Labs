@@ -1,0 +1,88 @@
+﻿@using sistema.Funciones;
+@using sistema.Conexiones;
+@using sistema.Models;
+
+@{
+    Funciones funcion = new Funciones();
+    Conexion conexion_now = new Conexion();
+
+    int cantidad_proveedores = 0;
+    int id_producto = ViewBag.id_producto;
+
+    List<proveedores> proveedores = new List<proveedores>();
+    proveedores = conexion_now.listarProveedores("");
+    cantidad_proveedores = proveedores.Count;
+
+    productos producto_load = new productos();
+    producto_load = conexion_now.cargarProducto(id_producto);
+
+    string id_producto_real = producto_load.id_producto.ToString();
+    string nombre_producto = producto_load.nombre_producto;
+    string descripcion = producto_load.descripcion;
+    string precio = producto_load.precio.ToString();
+    string id_proveedor = producto_load.id_proveedor.ToString();
+
+}
+
+<div class="panel contenedor panel-default">
+    <div class="panel-heading">Editando al producto @nombre_producto</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Editar", "Productos", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <input type="hidden" name="id_producto" value="@id_producto_real">
+            <fieldset>
+                <legend>Datos</legend>
+                <div class="form-group" name="form-group-nombre">
+                    <label for="inputNombre" class="col-lg-2 control-label">Nombre producto</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputNombre" placeholder="Ingrese nombre producto" type="text" name="nombre_producto" value="@nombre_producto">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-descripcion">
+                    <label for="textArea" class="col-lg-2 control-label">Descripcion</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="3" id="textArea" placeholder="Ingrese descripcion" name="descripcion">@descripcion</textarea>
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-precio">
+                    <label for="inputPrecio" class="col-lg-2 control-label">Precio</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" id="inputPrecio" placeholder="Ingrese precio" type="text" name="precio" value="@precio">
+                    </div>
+                </div>
+                <div class="form-group" name="form-group-proveedor">
+                    <label for="select" class="col-lg-2 control-label">Proveedor</label>
+                    <div class="col-lg-10">
+                        <select class="form-control" id="select" name="id_proveedor">
+
+                            @if (cantidad_proveedores == 0)
+                            {
+                                <option value="null">No se encontraron proveedores</option>
+                            }
+                            else
+                            {
+                                foreach (var proveedor in proveedores)
+                                {
+                                    if (proveedor.id_proveedor.ToString() == id_proveedor.ToString())
+                                    {
+                                        <option value="@proveedor.id_proveedor" selected="true">@proveedor.nombre_empresa</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@proveedor.id_proveedor">@proveedor.nombre_empresa</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default" name="editar_producto" id="editar_producto">Editar</button>
+                        <button type="submit" class="btn btn-primary" name="cancelar_producto" id="cancelar_producto">Cancelar</button>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div ng-include="'Content/templates/Header.html'"></div>
+
+<div class="jumbotron">
+  <center>
+  <h1>Eliminar producto</h1></br>
+  <p>¿Estás seguro que deseas eliminar al producto {{ producto.nombre_producto }}?</p></br>
+  <a ng-click="BorrarProducto()" class="btn-lg btn-danger">Eliminar</a>
+  <a href="#/productos" class="btn-lg btn-primary">Volver</a>
+  </center>
+</div>
+
+<div ng-include="'Content/templates/Footer.html'"></div>

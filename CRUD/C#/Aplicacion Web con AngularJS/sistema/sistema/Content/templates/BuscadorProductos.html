@@ -1,0 +1,43 @@
+﻿<div class="panel contenedor panel-default">
+  <div class="panel-heading">Productos encontrados : {{productos.length}}</div>
+  <div class="panel-body">
+    <fieldset>
+      <div class="form-group">
+        <label for="inputBuscar" class="col-lg-2 control-label">Nombre</label>
+        <div class="col-lg-10">
+          <input class="form-control" type="text" ng-model="buscador"/>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<div class="panel contenedor panel-default" ng-show="(productos| filter:{nombre_producto:buscador}).length">
+  <div class="panel-heading">Productos encontrados : {{(productos|filter:{nombre_producto:buscador}).length}}</div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="fila_producto">Nombre</th>
+            <th class="fila_producto">Descripcion</th>
+            <th class="fila_producto">Precio</th>
+            <th class="fila_producto">Proveedor</th>
+            <th class="fila_producto">Registro</th>
+            <th class="fila_producto">Opción</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="producto in productos | filter: { nombre_producto : buscador }">
+          <td class="filterable-cell fila_producto">{{producto.nombre_producto}}</td>
+          <td class="filterable-cell fila_producto">{{producto.descripcion}}</td>
+          <td class="filterable-cell fila_producto">{{producto.precio}}</td>
+          <td class="filterable-cell fila_producto">{{producto.nombre_empresa}}</td>
+          <td class="filterable-cell fila_producto">{{producto.fecha_registro}}</td>
+  		    <td class="filterable-cell fila_producto"><a href="#/productos/{{producto.id}}/editar"><img src="Content/images/edit.png" title="Editar"></a> <a href="#/productos/{{producto.id}}/borrar" class="button expand alert""><img src="Content/images/delete.png" title="Borrar"></a></td>
+        </tr>
+        </tbody>
+      </table> 
+    </div>
+  </div>
+</div>

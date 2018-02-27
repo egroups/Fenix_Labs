@@ -1,0 +1,46 @@
+{% extends 'layouts/base_admin.html' %}
+
+{% block title %}Cambiar Usuario{% endblock %}
+
+{% block content %}
+
+	<div class="panel contenedor panel-default">
+	<div class="panel-heading">Cambiar Usuario</div>
+	<div class="panel-body">
+	  <form action="{% url 'sistema_cambiar_usuario' %}" method="POST" id="cambiarUsuarioForm" class="form-horizontal">
+	  	{% csrf_token %}
+	    <fieldset>
+	      <legend>Datos</legend>
+	      <div class="form-group" name="form-group-username">
+	        <label for="inputNombre" class="col-lg-2 control-label">{{form.nombre.label}}</label>
+	        <div class="col-lg-10">
+	          {{form.nombre}}
+	        </div>
+	      </div>
+	      <div class="form-group" name="form-group-new-username">
+	        <label for="inputNuevo" class="col-lg-2 control-label">{{form.nuevo_nombre.label}}</label>
+	        <div class="col-lg-10">
+	          {{form.nuevo_nombre}}
+	        </div>
+	      </div>
+	      <div class="form-group" name="form-group-password">
+	        <label for="inputActual" class="col-lg-2 control-label">{{form.clave.label}}</label>
+	        <div class="col-lg-10">
+	          {{form.clave}}
+	        </div>
+	      </div>
+	      <div class="form-group">
+	          <button type="submit" class="btn btn-primary center-block" name="cambiar_user" id="cambiar_user"><span class="glyphicon glyphicon-pencil right_space"></span>Cambiar Usuario</button>
+	      </div>
+	    </fieldset>
+	  </form>        
+	</div>
+	</div>
+
+	{% if messages %}
+		{% for message in messages %}
+			{% autoescape off %}{{ message }}{% endautoescape %}
+		{% endfor %}
+	{% endif %}
+
+{% endblock %}
